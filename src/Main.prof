@@ -1,71 +1,71 @@
-	Mon Feb  9 16:34 2015 Time and Allocation Profiling Report  (Final)
+	Mon Feb  9 16:42 2015 Time and Allocation Profiling Report  (Final)
 
 	   Main +RTS -pa -RTS
 
-	total time  =       29.38 secs   (29383 ticks @ 1000 us, 1 processor)
-	total alloc = 29,802,488,648 bytes  (excludes profiling overheads)
+	total time  =       89.36 secs   (89364 ticks @ 1000 us, 1 processor)
+	total alloc = 90,124,924,392 bytes  (excludes profiling overheads)
 
 COST CENTRE            MODULE                           %time %alloc  ticks     bytes
 
-getMemPlatter          VM.Memory                         15.0    0.0   4401         0
-setRegister.lambda     VM.Machine                        10.3   18.9   3028 5619031312
-runProgram             VM.VM                              8.1    8.6   2373 2558673136
-getRegister            VM.Machine                         7.4    2.0   2163 581957968
-liftBinOp              VM.VM                              7.2   13.5   2129 4013483744
-readInstruction        Instruction.Read                   6.3    6.3   1861 1862789696
-spinCycle              VM.VM                              6.0    7.0   1773 2093459776
-runInstruction         VM.VM                              4.1    1.7   1218 503948328
-GC                     GC                                 4.1    0.0   1197      1112
-arrayIndex             VM.VM                              2.8    4.8    827 1436453040
-arrayAmendment         VM.VM                              2.6    3.3    751 977652832
-OVERHEAD_of            PROFILING                          2.5    0.0    741         0
-setMemPlatter.\        VM.Memory                          1.8    4.2    539 1265551008
-loadProgram            VM.VM                              1.7    2.2    494 642594880
-incrFinger.\           VM.Machine                         1.6    3.1    458 930426528
-setMemPlatter          VM.Memory                          1.5    3.1    444 914779760
-readRegisterTriplet    Instruction.Read                   1.5    5.4    436 1609142736
-SYSTEM                 SYSTEM                             1.3    0.0    390    362352
-setRegister            VM.Machine                         1.1    0.0    331         0
-currInstruction        VM.Machine                         1.1    0.0    323         0
-modifyMemory           VM.Machine                         1.1    2.1    310 629870992
-setRegister.\          VM.Machine                         1.0    0.0    301         0
-orthography            VM.VM                              0.9    4.2    271 1255578464
-condMove               VM.VM                              0.9    0.9    267 277752040
-registers              VM.Machine                         0.9    0.0    259        16
-getPlatter             VM.Machine                         0.9    0.0    252         0
-loadMemZeroArray       VM.Memory                          0.8    1.8    249 537292072
-readOrthographyArgs    Instruction.Read                   0.6    2.1    175 627789296
-aRegNum                Instruction.Instruction            0.6    0.0    172         0
-incrFinger             VM.Machine                         0.6    0.0    167         0
-addition               VM.VM                              0.4    0.9    131 254563664
-cRegNum                Instruction.Instruction            0.4    0.0    126         0
-getArray               VM.Memory                          0.4    0.0    119         0
-notAnd                 VM.VM                              0.4    0.8    115 238644896
-allocateMemArray       VM.Memory                          0.4    0.8    113 253075312
-bRegNum                Instruction.Instruction            0.2    0.0     71         0
-jmp.\                  VM.Machine                         0.2    0.2     63  67641536
-loadZeroArray          VM.Machine                         0.2    0.5     56 152193528
-notAnd.\               VM.VM                              0.2    0.2     54  53032192
-setPlatter             VM.Machine                         0.2    0.8     53 244413208
-freeMemArray           VM.Memory                          0.1    0.2     42  48955720
-division               VM.VM                              0.1    0.2     35  63599648
-allocateMemArray.newId VM.Memory                          0.1    0.0     26   9993160
-allocation             VM.VM                              0.1    0.1     20  20547056
-multiplication         VM.VM                              0.0    0.1     14  24122768
-jmp                    VM.Machine                         0.0    0.0     13         0
-freeArray              VM.Machine                         0.0    0.0     10   8141112
-abandonment            VM.VM                              0.0    0.0      7   9950248
-allocateArray          VM.Machine                         0.0    0.0      5   3244272
-freeMemArray.arrIdInt  VM.Memory                          0.0    0.0      4   1809136
-memory                 VM.Machine                         0.0    0.0      2         0
-programWords.go        Instruction.Read                   0.0    0.0      1   2818224
-readOpcode             Instruction.Read                   0.0    0.0      1         0
-loadPlatters           VM.Memory                          0.0    0.0      1   6394776
-output                 VM.VM                              0.0    0.0      1    691608
+getMemPlatter          VM.Memory                         17.2    0.0  15359         0
+setRegister.lambda     VM.Machine                         9.0   16.8   8062 15123232648
+runProgram             VM.VM                              8.1    8.1   7197 7327155624
+getRegister            VM.Machine                         6.5    1.8   5835 1591434432
+readInstruction        Instruction.Read                   5.9    6.1   5240 5475547064
+spinCycle              VM.VM                              5.9    6.7   5235 5994945376
+GC                     GC                                 4.5    0.0   3996      1112
+liftBinOp              VM.VM                              4.2    7.2   3711 6515496864
+runInstruction         VM.VM                              4.1    2.0   3698 1809450536
+arrayAmendment         VM.VM                              3.2    4.5   2836 4029689664
+arrayIndex             VM.VM                              3.1    5.5   2780 4962258752
+setMemPlatter          VM.Memory                          3.0    6.8   2649 6104750520
+setMemPlatter.\        VM.Memory                          2.3    5.1   2014 4632397976
+OVERHEAD_of            PROFILING                          2.1    0.0   1861         0
+readRegisterTriplet    Instruction.Read                   1.5    5.0   1385 4474776736
+loadProgram            VM.VM                              1.5    2.0   1342 1807209776
+incrFinger.\           VM.Machine                         1.5    3.0   1315 2664420160
+loadMemZeroArray       VM.Memory                          1.4    3.4   1275 3081056816
+modifyMemory           VM.Machine                         1.4    2.6   1231 2354494224
+SYSTEM                 SYSTEM                             1.2    0.0   1045    362352
+currInstruction        VM.Machine                         1.1    0.0   1008         0
+orthography            VM.VM                              1.0    4.3    913 3843037968
+allocateMemArray       VM.Memory                          1.0    2.0    882 1804378144
+condMove               VM.VM                              1.0    1.2    851 1060363416
+setRegister            VM.Machine                         0.9    0.0    829         0
+getPlatter             VM.Machine                         0.9    0.0    789         0
+registers              VM.Machine                         0.8    0.0    758        16
+setRegister.\          VM.Machine                         0.8    0.0    757         0
+readOrthographyArgs    Instruction.Read                   0.7    2.1    610 1921518992
+incrFinger             VM.Machine                         0.6    0.0    509         0
+getArray               VM.Memory                          0.5    0.0    415         0
+aRegNum                Instruction.Instruction            0.4    0.0    394         0
+freeMemArray           VM.Memory                          0.4    0.5    383 466643400
+bRegNum                Instruction.Instruction            0.4    0.0    337         0
+notAnd                 VM.VM                              0.3    0.6    290 510288368
+cRegNum                Instruction.Instruction            0.3    0.0    251         0
+setPlatter             VM.Machine                         0.2    1.1    197 1007422416
+jmp.\                  VM.Machine                         0.2    0.2    179 190232608
+loadZeroArray          VM.Machine                         0.2    0.5    173 428023368
+addition               VM.VM                              0.2    0.4    159 317334560
+allocation             VM.VM                              0.1    0.2    114 158026800
+notAnd.\               VM.VM                              0.1    0.1    105 113397408
+allocateMemArray.newId VM.Memory                          0.1    0.0     98  24497136
+jmp                    VM.Machine                         0.1    0.0     55         0
+abandonment            VM.VM                              0.1    0.1     46  88385176
+multiplication         VM.VM                              0.0    0.1     42  52851488
+allocateArray          VM.Machine                         0.0    0.0     39  24951600
+freeArray              VM.Machine                         0.0    0.1     31  72315144
+division               VM.VM                              0.0    0.1     30  66510608
+freeMemArray.arrIdInt  VM.Memory                          0.0    0.0     24  16070032
+memory                 VM.Machine                         0.0    0.0     21         0
+readOpcode             Instruction.Read                   0.0    0.0      3         0
+loadPlatters           VM.Memory                          0.0    0.0      3   6394776
+programWords.go        Instruction.Read                   0.0    0.0      2   2818224
+output                 VM.VM                              0.0    0.0      1    717016
 IDLE                   IDLE                               0.0    0.0      0         0
 PINNED                 SYSTEM                             0.0    0.0      0         0
 DONT_CARE              MAIN                               0.0    0.0      0         0
-MAIN                   MAIN                               0.0    0.0      0      2856
+MAIN                   MAIN                               0.0    0.0      0      2456
 CAF                    GHC.Integer.Type                   0.0    0.0      0         0
 CAF                    GHC.Integer.Logarithms.Internals   0.0    0.0      0         0
 CAF                    GHC.Event.TimerManager             0.0    0.0      0         0
@@ -144,159 +144,159 @@ CAF                    VM.VM                              0.0    0.0      0     
                                                                                     individual     inherited
 COST CENTRE                    MODULE                             no.     entries  %time %alloc   %time %alloc  ticks     bytes
 
-MAIN                           MAIN                                61           0    0.0    0.0   100.0  100.0      0      2856
- main                          Main                               123           0    0.0    0.0    92.1  100.0      0      4872
-  runProgram                   VM.VM                              125           0    8.1    8.6    92.1  100.0   2373 2558673136
-   getPlatter                  VM.Machine                         141    29075830    0.0    0.0     0.0    0.0      0         0
-   arrayPool                   VM.Memory                          132    29075830    0.0    0.0     0.0    0.0      0         0
-   memory                      VM.Machine                         131    29075830    0.0    0.0     0.0    0.0      0         0
-   finger                      VM.Machine                         130    29075830    0.0    0.0     0.0    0.0      0         0
-   currInstruction             VM.Machine                         129    29075830    0.0    0.0     0.0    0.0      0         0
-   spinCycle                   VM.VM                              128    29075830    6.0    7.0    84.0   91.4   1773 2093459776
-    incrFinger                 VM.Machine                         152           0    0.6    0.0     2.1    3.1    167         0
-     incrFinger.\              VM.Machine                         153    29075830    1.6    3.1     1.6    3.1    458 930426528
-      finger                   VM.Machine                         154    29075829    0.0    0.0     0.0    0.0      0         0
-    runInstruction             VM.VM                              142    29075830    4.1    1.7    53.2   67.5   1218 503948328
-     abandonment               VM.VM                              274      113071    0.0    0.0     0.2    0.3      7   9950248
-      freeArray                VM.Machine                         276      113071    0.0    0.0     0.2    0.3     10   8141112
-       modifyMemory            VM.Machine                         277      113071    0.0    0.1     0.2    0.2      7  18995928
-        freeMemArray           VM.Memory                          279      113071    0.1    0.2     0.2    0.2     42  48955720
-         freeList              VM.Memory                          284       88566    0.0    0.0     0.0    0.0      0         0
-         freeMemArray.arrIdInt VM.Memory                          281      113071    0.0    0.0     0.0    0.0      4   1809136
-         arrayPool             VM.Memory                          280      113071    0.0    0.0     0.0    0.0      0         0
-        memory                 VM.Machine                         278      113071    0.0    0.0     0.0    0.0      0         0
-      getRegister              VM.Machine                         275      113071    0.0    0.0     0.0    0.0      1   1809136
-       registers               VM.Machine                         282      113071    0.0    0.0     0.0    0.0      1         0
-     allocation                VM.VM                              260      135178    0.1    0.1     0.7    1.1     20  20547056
-      setRegister              VM.Machine                         265      135178    0.0    0.0     0.1    0.1      1         0
-       setRegister.\           VM.Machine                         266      135178    0.0    0.0     0.1    0.1      1         0
-        setRegister.lambda     VM.Machine                         267      135178    0.1    0.1     0.1    0.1     29  31361296
-         registers             VM.Machine                         273      135178    0.0    0.0     0.0    0.0      0         0
-      modifyMemory             VM.Machine                         264      135178    0.0    0.0     0.0    0.0      0         0
-      allocateArray            VM.Machine                         262      135178    0.0    0.0     0.5    0.9      5   3244272
-       memory                  VM.Machine                         268      135178    0.0    0.0     0.0    0.0      2         0
-       allocateMemArray        VM.Memory                          263      135178    0.4    0.8     0.5    0.9    113 253075312
-        freeList               VM.Memory                          283      135175    0.0    0.0     0.0    0.0      0         0
-        arrayPool              VM.Memory                          272      135178    0.0    0.0     0.0    0.0      0         0
-        allocateMemArray.newId VM.Memory                          269      135178    0.1    0.0     0.1    0.0     26   9993160
-         arrayPool             VM.Memory                          285       46609    0.0    0.0     0.0    0.0      0         0
-         freeList              VM.Memory                          270      135178    0.0    0.0     0.0    0.0      0         0
-      getRegister              VM.Machine                         261      135178    0.0    0.0     0.0    0.0     11   2162848
-       registers               VM.Machine                         271      135178    0.0    0.0     0.0    0.0      0         0
-     output                    VM.VM                              257         627    0.0    0.0     0.0    0.0      1    691608
-      getRegister              VM.Machine                         258         627    0.0    0.0     0.0    0.0      0         0
-       registers               VM.Machine                         259         627    0.0    0.0     0.0    0.0      0         0
-     arrayAmendment            VM.VM                              245     2350127    2.6    3.3     8.3   13.0    751 977652832
-      cRegNum                  Instruction.Instruction            256     2350127    0.1    0.0     0.1    0.0     25         0
-      bRegNum                  Instruction.Instruction            255     2350127    0.0    0.0     0.0    0.0      6         0
-      aRegNum                  Instruction.Instruction            251     2350127    0.1    0.0     0.1    0.0     33         0
-      setPlatter               VM.Machine                         247     2350127    0.2    0.8     4.1    9.3     53 244413208
-       modifyMemory            VM.Machine                         248     2350127    0.6    1.2     3.9    8.5    170 357219304
-        setMemPlatter          VM.Memory                          250     2350127    1.5    3.1     3.3    7.3    444 914779760
-         setMemPlatter.\       VM.Memory                          254     2350127    1.8    4.2     1.8    4.2    539 1265551008
-         arrayPool             VM.Memory                          253     2350127    0.0    0.0     0.0    0.0      0         0
-        memory                 VM.Machine                         249     2350127    0.0    0.0     0.0    0.0      0         0
-      getRegister              VM.Machine                         246     7050381    1.3    0.4     1.5    0.4    375 112806096
-       registers               VM.Machine                         252     7050381    0.2    0.0     0.2    0.0     56         0
-     arrayIndex                VM.VM                              231     3903405    2.8    4.8     9.5    8.3    827 1436453040
-      cRegNum                  Instruction.Instruction            243     3903405    0.1    0.0     0.1    0.0     37         0
-      bRegNum                  Instruction.Instruction            241     3903405    0.1    0.0     0.1    0.0     41         0
-      aRegNum                  Instruction.Instruction            238     3903405    0.1    0.0     0.1    0.0     31         0
-      setRegister              VM.Machine                         234     3903405    0.2    0.0     1.8    3.0     71         0
-       setRegister.\           VM.Machine                         235     3903405    0.1    0.0     1.6    3.0     40         0
-        setRegister.lambda     VM.Machine                         236     3903405    1.5    3.0     1.5    3.0    432 905589960
-         registers             VM.Machine                         237     3903405    0.0    0.0     0.0    0.0      0         0
-      getPlatter               VM.Machine                         233     3903405    0.2    0.0     2.7    0.0     69         0
-       getMemPlatter           VM.Memory                          240     3903405    2.5    0.0     2.5    0.0    732         0
-        arrayPool              VM.Memory                          244     3903405    0.0    0.0     0.0    0.0      0         0
-       memory                  VM.Machine                         239     3903405    0.0    0.0     0.0    0.0      0         0
-      getRegister              VM.Machine                         232     7806810    1.5    0.4     1.7    0.4    450 124908960
-       registers               VM.Machine                         242     7806810    0.2    0.0     0.2    0.0     53         0
-     division                  VM.VM                              220           0    0.1    0.2     1.8    2.5     35  63599616
-      liftBinOp                VM.VM                              221      883328    0.9    1.5     1.7    2.3    256 445197312
-       cRegNum                 Instruction.Instruction            230      883328    0.0    0.0     0.0    0.0      5         0
-       bRegNum                 Instruction.Instruction            228      883328    0.0    0.0     0.0    0.0      1         0
-       aRegNum                 Instruction.Instruction            227      883328    0.1    0.0     0.1    0.0     16         0
-       setRegister             VM.Machine                         223      883328    0.0    0.0     0.4    0.7      8         0
-        setRegister.\          VM.Machine                         224      883328    0.1    0.0     0.3    0.7     18         0
-         setRegister.lambda    VM.Machine                         225      883328    0.3    0.7     0.3    0.7     79 204932096
-          registers            VM.Machine                         226      883328    0.0    0.0     0.0    0.0      0         0
-       getRegister             VM.Machine                         222     1766656    0.4    0.1     0.4    0.1    110  28266496
-        registers              VM.Machine                         229     1766656    0.0    0.0     0.0    0.0     14         0
-     multiplication            VM.VM                              208           0    0.0    0.1     0.9    0.9     14  24122736
-      liftBinOp                VM.VM                              209      335038    0.4    0.6     0.8    0.9    123 168859152
-       cRegNum                 Instruction.Instruction            218      335038    0.0    0.0     0.0    0.0      4         0
-       bRegNum                 Instruction.Instruction            216      335038    0.0    0.0     0.0    0.0      0         0
-       aRegNum                 Instruction.Instruction            215      335038    0.0    0.0     0.0    0.0      8         0
-       setRegister             VM.Machine                         211      335038    0.0    0.0     0.2    0.3      3         0
-        setRegister.\          VM.Machine                         212      335038    0.0    0.0     0.2    0.3      4         0
-         setRegister.lambda    VM.Machine                         213      335038    0.2    0.3     0.2    0.3     53  77728816
-          registers            VM.Machine                         214      335038    0.0    0.0     0.0    0.0      0         0
-       getRegister             VM.Machine                         210      670076    0.2    0.0     0.2    0.0     48  10721216
-        registers              VM.Machine                         217      670076    0.0    0.0     0.0    0.0      3         0
-     notAnd                    VM.VM                              189           0    0.4    0.8     6.6    9.3    115 238644864
-      liftBinOp                VM.VM                              190     3314512    2.8    5.4     6.2    8.5    836 1617481856
-       cRegNum                 Instruction.Instruction            200     3314512    0.1    0.0     0.1    0.0     31         0
-       bRegNum                 Instruction.Instruction            198     3314512    0.0    0.0     0.0    0.0      4         0
-       notAnd.\                VM.VM                              197     3314512    0.2    0.2     0.2    0.2     54  53032192
-       aRegNum                 Instruction.Instruction            196     3314512    0.1    0.0     0.1    0.0     33         0
-       setRegister             VM.Machine                         192     3314512    0.1    0.0     1.5    2.6     38         0
-        setRegister.\          VM.Machine                         193     3314512    0.1    0.0     1.4    2.6     36         0
-         setRegister.lambda    VM.Machine                         194     3314512    1.3    2.6     1.3    2.6    380 768966784
-          registers            VM.Machine                         195     3314512    0.0    0.0     0.0    0.0      0         0
-       getRegister             VM.Machine                         191     6629024    1.2    0.4     1.4    0.4    351 106064384
-        registers              VM.Machine                         199     6629024    0.2    0.0     0.2    0.0     52         0
-     loadProgram               VM.VM                              166     2113799    1.7    2.2     4.9    5.8    494 642594880
-      loadZeroArray            VM.Machine                         169     2113799    0.2    0.5     1.9    3.2     56 152193528
-       modifyMemory            VM.Machine                         170     2113799    0.5    0.9     1.7    2.7    133 253655760
-        loadMemZeroArray       VM.Memory                          183     2113798    0.8    1.8     1.3    1.8    249 537292072
-         getArray              VM.Memory                          185     2113798    0.4    0.0     0.4    0.0    119         0
-          arrayPool            VM.Memory                          187     2113798    0.0    0.0     0.0    0.0      0         0
-         arrayPool             VM.Memory                          184     2113798    0.0    0.0     0.0    0.0      0         0
-        memory                 VM.Machine                         182     2113798    0.0    0.0     0.0    0.0      0         0
-      jmp                      VM.Machine                         168     2113799    0.0    0.0     0.3    0.2     13         0
-       jmp.\                   VM.Machine                         171     2113799    0.2    0.2     0.2    0.2     63  67641536
-      getRegister              VM.Machine                         167     4227598    0.9    0.2     1.0    0.2    278  67641552
-       registers               VM.Machine                         173     4227597    0.1    0.0     0.1    0.0     27         0
-     orthography               VM.VM                              162    11210522    0.9    4.2     7.0   12.9    271 1255578464
-      setRegister              VM.Machine                         163    11210522    0.5    0.0     6.1    8.7    153         0
-       setRegister.\           VM.Machine                         164    11210522    0.4    0.0     5.6    8.7    121         0
-        setRegister.lambda     VM.Machine                         165    11210522    5.2    8.7     5.2    8.7   1518 2600840960
-         registers             VM.Machine                         174    11210522    0.0    0.0     0.0    0.0      0         0
-     addition                  VM.VM                              156           0    0.4    0.9     7.1   10.0    131 254563632
-      liftBinOp                VM.VM                              157     3535606    3.1    6.0     6.7    9.1    914 1781945424
-       cRegNum                 Instruction.Instruction            181     3535606    0.1    0.0     0.1    0.0     24         0
-       bRegNum                 Instruction.Instruction            179     3535606    0.0    0.0     0.0    0.0     14         0
-       aRegNum                 Instruction.Instruction            178     3535606    0.2    0.0     0.2    0.0     48         0
-       setRegister             VM.Machine                         159     3535606    0.1    0.0     1.7    2.8     43         0
-        setRegister.\          VM.Machine                         160     3535606    0.2    0.0     1.6    2.8     58         0
-         setRegister.lambda    VM.Machine                         161     3535606    1.4    2.8     1.4    2.8    401 820260592
-          registers            VM.Machine                         177     3535606    0.0    0.0     0.0    0.0      0         0
-       getRegister             VM.Machine                         158     7071212    1.4    0.4     1.6    0.4    415 113139392
-        registers              VM.Machine                         180     7071212    0.1    0.0     0.1    0.0     42         0
-     condMove                  VM.VM                              145     1180617    0.9    0.9     2.0    1.7    267 277752040
-      bRegNum                  Instruction.Instruction            206      902368    0.0    0.0     0.0    0.0      5         0
-      aRegNum                  Instruction.Instruction            205      902368    0.0    0.0     0.0    0.0      3         0
-      setRegister              VM.Machine                         201      902368    0.0    0.0     0.6    0.7     14         0
-       setRegister.\           VM.Machine                         202      902368    0.1    0.0     0.5    0.7     23         0
-        setRegister.lambda     VM.Machine                         203      902368    0.5    0.7     0.5    0.7    136 209350808
-         registers             VM.Machine                         204      902368    0.0    0.0     0.0    0.0      0         0
-      cRegNum                  Instruction.Instruction            147     1180617    0.0    0.0     0.0    0.0      0         0
-      getRegister              VM.Machine                         146     2361234    0.4    0.0     0.5    0.0    124  14437888
-       registers               VM.Machine                         150     2082985    0.0    0.0     0.0    0.0     11        16
-    currInstruction            VM.Machine                         133           0    1.1    0.0    22.6   13.8    323         0
-     readInstruction           Instruction.Read                   143    29075830    6.3    6.3     8.4   13.8   1861 1862789696
-      bRegNum                  Instruction.Instruction            186     2248976    0.0    0.0     0.0    0.0      0         0
-      readOrthographyArgs      Instruction.Read                   175    11210522    0.6    2.1     0.6    2.1    175 627789248
-      cRegNum                  Instruction.Instruction            172     2362675    0.0    0.0     0.0    0.0      0         0
-      readRegisterTriplet      Instruction.Read                   148    20114284    1.5    5.4     1.5    5.4    436 1609142736
-      readOpcode               Instruction.Read                   144    29075830    0.0    0.0     0.0    0.0      1         0
-     getPlatter                VM.Machine                         134           0    0.6    0.0    13.1    0.0    183         0
-      getMemPlatter            VM.Memory                          135    29075830   12.5    0.0    12.5    0.0   3669         0
+MAIN                           MAIN                                61           0    0.0    0.0   100.0  100.0      0      2456
+ main                          Main                               123           0    0.0    0.0    92.3  100.0      0      4872
+  runProgram                   VM.VM                              125           0    8.1    8.1    92.3  100.0   7197 7327155624
+   getPlatter                  VM.Machine                         141    83263131    0.0    0.0     0.0    0.0      0         0
+   arrayPool                   VM.Memory                          132    83263131    0.0    0.0     0.0    0.0      0         0
+   memory                      VM.Machine                         131    83263131    0.0    0.0     0.0    0.0      0         0
+   finger                      VM.Machine                         130    83263131    0.0    0.0     0.0    0.0      0         0
+   currInstruction             VM.Machine                         129    83263131    0.0    0.0     0.0    0.0      0         0
+   spinCycle                   VM.VM                              128    83263131    5.9    6.7    84.2   91.9   5235 5994945376
+    incrFinger                 VM.Machine                         152           0    0.6    0.0     2.0    3.0    509         0
+     incrFinger.\              VM.Machine                         153    83263130    1.5    3.0     1.5    3.0   1315 2664420160
+      finger                   VM.Machine                         154    83263130    0.0    0.0     0.0    0.0      0         0
+    runInstruction             VM.VM                              142    83263131    4.1    2.0    52.2   69.1   3698 1809450536
+     abandonment               VM.VM                              274     1004377    0.1    0.1     0.7    0.9     46  88385176
+      freeArray                VM.Machine                         276     1004377    0.0    0.1     0.6    0.8     31  72315144
+       modifyMemory            VM.Machine                         277     1004377    0.1    0.2     0.6    0.7     86 168735336
+        freeMemArray           VM.Memory                          279     1004377    0.4    0.5     0.5    0.5    383 466643400
+         freeList              VM.Memory                          284      992845    0.0    0.0     0.0    0.0      0         0
+         freeMemArray.arrIdInt VM.Memory                          281     1004377    0.0    0.0     0.0    0.0     24  16070032
+         arrayPool             VM.Memory                          280     1004377    0.0    0.0     0.0    0.0      0         0
+        memory                 VM.Machine                         278     1004377    0.0    0.0     0.0    0.0      0         0
+      getRegister              VM.Machine                         275     1004377    0.1    0.0     0.1    0.0     64  16070032
+       registers               VM.Machine                         282     1004377    0.0    0.0     0.0    0.0      2         0
+     allocation                VM.VM                              260     1039650    0.1    0.2     1.6    2.5    114 158026800
+      setRegister              VM.Machine                         265     1039650    0.0    0.0     0.2    0.3     16         0
+       setRegister.\           VM.Machine                         266     1039650    0.0    0.0     0.2    0.3     20         0
+        setRegister.lambda     VM.Machine                         267     1039650    0.2    0.3     0.2    0.3    144 241198800
+         registers             VM.Machine                         273     1039650    0.0    0.0     0.0    0.0      0         0
+      modifyMemory             VM.Machine                         264     1039650    0.0    0.0     0.0    0.0      0         0
+      allocateArray            VM.Machine                         262     1039650    0.0    0.0     1.2    2.1     39  24951600
+       memory                  VM.Machine                         268     1039650    0.0    0.0     0.0    0.0     21         0
+       allocateMemArray        VM.Memory                          263     1039650    1.0    2.0     1.1    2.0    882 1804378144
+        freeList               VM.Memory                          283     1039647    0.0    0.0     0.0    0.0      0         0
+        arrayPool              VM.Memory                          272     1039650    0.0    0.0     0.0    0.0      0         0
+        allocateMemArray.newId VM.Memory                          269     1039650    0.1    0.0     0.1    0.0     98  24497136
+         arrayPool             VM.Memory                          285       46802    0.0    0.0     0.0    0.0      0         0
+         freeList              VM.Memory                          270     1039650    0.0    0.0     0.0    0.0      0         0
+      getRegister              VM.Machine                         261     1039650    0.1    0.0     0.1    0.0     72  16634400
+       registers               VM.Machine                         271     1039650    0.0    0.0     0.0    0.0      3         0
+     output                    VM.VM                              257         650    0.0    0.0     0.0    0.0      1    717016
+      getRegister              VM.Machine                         258         650    0.0    0.0     0.0    0.0      0         0
+       registers               VM.Machine                         259         650    0.0    0.0     0.0    0.0      0         0
+     arrayAmendment            VM.VM                              245     9686754    3.2    4.5    11.6   19.7   2836 4029689664
+      cRegNum                  Instruction.Instruction            256     9686754    0.1    0.0     0.1    0.0     72         0
+      bRegNum                  Instruction.Instruction            255     9686754    0.1    0.0     0.1    0.0     64         0
+      aRegNum                  Instruction.Instruction            251     9686754    0.1    0.0     0.1    0.0    100         0
+      setPlatter               VM.Machine                         247     9686754    0.2    1.1     6.2   14.7    197 1007422416
+       modifyMemory            VM.Machine                         248     9686754    0.8    1.6     6.0   13.5    689 1472386608
+        setMemPlatter          VM.Memory                          250     9686754    3.0    6.8     5.2   11.9   2649 6104750520
+         setMemPlatter.\       VM.Memory                          254     9686754    2.3    5.1     2.3    5.1   2014 4632397976
+         arrayPool             VM.Memory                          253     9686754    0.0    0.0     0.0    0.0      0         0
+        memory                 VM.Machine                         249     9686754    0.0    0.0     0.0    0.0      0         0
+      getRegister              VM.Machine                         246    29060262    1.7    0.5     2.0    0.5   1549 464964192
+       registers               VM.Machine                         252    29060262    0.2    0.0     0.2    0.0    219         0
+     arrayIndex                VM.VM                              231    13484399    3.1    5.5    10.6    9.5   2780 4962258752
+      cRegNum                  Instruction.Instruction            243    13484398    0.1    0.0     0.1    0.0    128         0
+      bRegNum                  Instruction.Instruction            241    13484398    0.2    0.0     0.2    0.0    187         0
+      aRegNum                  Instruction.Instruction            238    13484398    0.1    0.0     0.1    0.0    103         0
+      setRegister              VM.Machine                         234    13484399    0.2    0.0     2.1    3.5    194         0
+       setRegister.\           VM.Machine                         235    13484399    0.2    0.0     1.8    3.5    151         0
+        setRegister.lambda     VM.Machine                         236    13484399    1.7    3.5     1.7    3.5   1499 3128380408
+         registers             VM.Machine                         237    13484398    0.0    0.0     0.0    0.0      0         0
+      getPlatter               VM.Machine                         233    13484399    0.3    0.0     3.2    0.0    244         0
+       getMemPlatter           VM.Memory                          240    13484398    2.9    0.0     2.9    0.0   2627         0
+        arrayPool              VM.Memory                          244    13484398    0.0    0.0     0.0    0.0      0         0
+       memory                  VM.Machine                         239    13484398    0.0    0.0     0.0    0.0      0         0
+      getRegister              VM.Machine                         232    26968798    1.6    0.5     1.8    0.5   1393 431500736
+       registers               VM.Machine                         242    26968796    0.2    0.0     0.2    0.0    197         0
+     division                  VM.VM                              220           0    0.0    0.1     0.7    0.9     30  66510576
+      liftBinOp                VM.VM                              221      923758    0.3    0.5     0.6    0.8    288 465574032
+       cRegNum                 Instruction.Instruction            230      923758    0.0    0.0     0.0    0.0      0         0
+       bRegNum                 Instruction.Instruction            228      923758    0.0    0.0     0.0    0.0      3         0
+       aRegNum                 Instruction.Instruction            227      923758    0.0    0.0     0.0    0.0     12         0
+       setRegister             VM.Machine                         223      923758    0.0    0.0     0.1    0.2     10         0
+        setRegister.\          VM.Machine                         224      923758    0.0    0.0     0.1    0.2      8         0
+         setRegister.lambda    VM.Machine                         225      923758    0.1    0.2     0.1    0.2    111 214311856
+          registers            VM.Machine                         226      923758    0.0    0.0     0.0    0.0      0         0
+       getRegister             VM.Machine                         222     1847516    0.1    0.0     0.1    0.0    112  29560256
+        registers              VM.Machine                         229     1847516    0.0    0.0     0.0    0.0     13         0
+     multiplication            VM.VM                              208           0    0.0    0.1     0.6    0.7     42  52851456
+      liftBinOp                VM.VM                              209      734048    0.3    0.4     0.5    0.6    253 369960192
+       cRegNum                 Instruction.Instruction            218      734048    0.0    0.0     0.0    0.0      4         0
+       bRegNum                 Instruction.Instruction            216      734048    0.0    0.0     0.0    0.0      1         0
+       aRegNum                 Instruction.Instruction            215      734048    0.0    0.0     0.0    0.0      9         0
+       setRegister             VM.Machine                         211      734048    0.0    0.0     0.1    0.2      4         0
+        setRegister.\          VM.Machine                         212      734048    0.0    0.0     0.1    0.2      9         0
+         setRegister.lambda    VM.Machine                         213      734048    0.1    0.2     0.1    0.2     94 170299136
+          registers            VM.Machine                         214      734048    0.0    0.0     0.0    0.0      0         0
+       getRegister             VM.Machine                         210     1468096    0.1    0.0     0.1    0.0     99  23489536
+        registers              VM.Machine                         217     1468096    0.0    0.0     0.0    0.0     12         0
+     notAnd                    VM.VM                              189           0    0.3    0.6     5.1    6.6    290 510288336
+      liftBinOp                VM.VM                              190     7087338    2.2    3.8     4.7    6.0   2008 3458620944
+       cRegNum                 Instruction.Instruction            200     7087338    0.0    0.0     0.0    0.0     33         0
+       bRegNum                 Instruction.Instruction            198     7087338    0.0    0.0     0.0    0.0     28         0
+       notAnd.\                VM.VM                              197     7087338    0.1    0.1     0.1    0.1    105 113397408
+       aRegNum                 Instruction.Instruction            196     7087338    0.1    0.0     0.1    0.0     87         0
+       setRegister             VM.Machine                         192     7087338    0.1    0.0     1.2    1.8     99         0
+        setRegister.\          VM.Machine                         193     7087338    0.1    0.0     1.1    1.8    101         0
+         setRegister.lambda    VM.Machine                         194     7087338    1.0    1.8     1.0    1.8    860 1644262416
+          registers            VM.Machine                         195     7087338    0.0    0.0     0.0    0.0      0         0
+       getRegister             VM.Machine                         191    14174676    0.9    0.3     1.0    0.3    801 226794816
+        registers              VM.Machine                         199    14174676    0.1    0.0     0.1    0.0    110         0
+     loadProgram               VM.VM                              166     5944769    1.5    2.0     5.4    7.1   1342 1807209776
+      loadZeroArray            VM.Machine                         169     5944769    0.2    0.5     2.6    4.7    173 428023368
+       modifyMemory            VM.Machine                         170     5944769    0.5    0.8     2.4    4.2    456 713372280
+        loadMemZeroArray       VM.Memory                          183     5944769    1.4    3.4     1.9    3.4   1275 3081056816
+         getArray              VM.Memory                          185     5944769    0.5    0.0     0.5    0.0    415         0
+          arrayPool            VM.Memory                          187     5944769    0.0    0.0     0.0    0.0      0         0
+         arrayPool             VM.Memory                          184     5944769    0.0    0.0     0.0    0.0      0         0
+        memory                 VM.Machine                         182     5944769    0.0    0.0     0.0    0.0      0         0
+      jmp                      VM.Machine                         168     5944769    0.1    0.0     0.3    0.2     55         0
+       jmp.\                   VM.Machine                         171     5944769    0.2    0.2     0.2    0.2    179 190232608
+      getRegister              VM.Machine                         167    11889538    0.9    0.2     1.0    0.2    801 190232608
+       registers               VM.Machine                         173    11889538    0.1    0.0     0.1    0.0     87         0
+     orthography               VM.VM                              162    34312839    1.0    4.3     6.7   13.1    913 3843037968
+      setRegister              VM.Machine                         163    34312839    0.4    0.0     5.7    8.8    383         0
+       setRegister.\           VM.Machine                         164    34312839    0.4    0.0     5.3    8.8    376         0
+        setRegister.lambda     VM.Machine                         165    34312839    4.8    8.8     4.8    8.8   4322 7960578488
+         registers             VM.Machine                         174    34312838    0.0    0.0     0.0    0.0      0         0
+     addition                  VM.VM                              156           0    0.2    0.4     3.0    4.1    159 317334528
+      liftBinOp                VM.VM                              157     4407424    1.3    2.5     2.8    3.8   1162 2221341696
+       cRegNum                 Instruction.Instruction            181     4407424    0.0    0.0     0.0    0.0     14         0
+       bRegNum                 Instruction.Instruction            179     4407424    0.0    0.0     0.0    0.0     20         0
+       aRegNum                 Instruction.Instruction            178     4407424    0.1    0.0     0.1    0.0     65         0
+       setRegister             VM.Machine                         159     4407424    0.1    0.0     0.8    1.1     60         0
+        setRegister.\          VM.Machine                         160     4407424    0.1    0.0     0.7    1.1     55         0
+         setRegister.lambda    VM.Machine                         161     4407424    0.7    1.1     0.7    1.1    583 1022522368
+          registers            VM.Machine                         177     4407424    0.0    0.0     0.0    0.0      0         0
+       getRegister             VM.Machine                         158     8814848    0.6    0.2     0.6    0.2    498 141037568
+        registers              VM.Machine                         180     8814848    0.1    0.0     0.1    0.0     65         0
+     condMove                  VM.VM                              145     4637124    1.0    1.2     2.2    2.1    851 1060363416
+      bRegNum                  Instruction.Instruction            206     3196893    0.0    0.0     0.0    0.0     34         0
+      aRegNum                  Instruction.Instruction            205     3196893    0.0    0.0     0.0    0.0     18         0
+      setRegister              VM.Machine                         201     3196893    0.1    0.0     0.6    0.8     63         0
+       setRegister.\           VM.Machine                         202     3196893    0.0    0.0     0.5    0.8     37         0
+        setRegister.lambda     VM.Machine                         203     3196893    0.5    0.8     0.5    0.8    449 741679176
+         registers             VM.Machine                         204     3196893    0.0    0.0     0.0    0.0      0         0
+      cRegNum                  Instruction.Instruction            147     4637124    0.0    0.0     0.0    0.0      0         0
+      getRegister              VM.Machine                         146     9274248    0.5    0.1     0.6    0.1    446  51150288
+       registers               VM.Machine                         150     7834017    0.1    0.0     0.1    0.0     50        16
+    currInstruction            VM.Machine                         133           0    1.1    0.0    24.1   13.2   1008         0
+     readInstruction           Instruction.Read                   143    83263131    5.9    6.1     8.1   13.2   5240 5475547064
+      bRegNum                  Instruction.Instruction            186     6984419    0.0    0.0     0.0    0.0      0         0
+      readOrthographyArgs      Instruction.Read                   175    34312838    0.7    2.1     0.7    2.1    610 1921518944
+      cRegNum                  Instruction.Instruction            172     7989446    0.0    0.0     0.0    0.0      0         0
+      readRegisterTriplet      Instruction.Read                   148    55934709    1.5    5.0     1.5    5.0   1385 4474776736
+      readOpcode               Instruction.Read                   144    83263131    0.0    0.0     0.0    0.0      3         0
+     getPlatter                VM.Machine                         134           0    0.6    0.0    14.9    0.0    545         0
+      getMemPlatter            VM.Memory                          135    83263131   14.2    0.0    14.2    0.0  12732         0
    loadMachine                 VM.Machine                         126           1    0.0    0.0     0.0    0.0      0       160
-    programWords.go            Instruction.Read                   140           0    0.0    0.0     0.0    0.0      1   2818224
+    programWords.go            Instruction.Read                   140           0    0.0    0.0     0.0    0.0      2   2818224
     loadIntoMemory             VM.Memory                          127           1    0.0    0.0     0.0    0.0      0       112
-     loadPlatters              VM.Memory                          137           0    0.0    0.0     0.0    0.0      1   5267400
+     loadPlatters              VM.Memory                          137           0    0.0    0.0     0.0    0.0      3   5267400
  CAF                           VM.VM                              121           0    0.0    0.0     0.0    0.0      0        16
   division                     VM.VM                              219           1    0.0    0.0     0.0    0.0      0        32
   multiplication               VM.VM                              207           1    0.0    0.0     0.0    0.0      0        32
@@ -363,9 +363,9 @@ MAIN                           MAIN                                61           
  CAF                           GHC.Event.TimerManager              70           0    0.0    0.0     0.0    0.0      0         0
  CAF                           GHC.Integer.Logarithms.Internals    69           0    0.0    0.0     0.0    0.0      0         0
  CAF                           GHC.Integer.Type                    68           0    0.0    0.0     0.0    0.0      0         0
- SYSTEM                        SYSTEM                              67           0    1.3    0.0     1.3    0.0    390    362352
- GC                            GC                                  66           0    4.1    0.0     4.1    0.0   1197      1112
- OVERHEAD_of                   PROFILING                           65           0    2.5    0.0     2.5    0.0    741         0
+ SYSTEM                        SYSTEM                              67           0    1.2    0.0     1.2    0.0   1045    362352
+ GC                            GC                                  66           0    4.5    0.0     4.5    0.0   3996      1112
+ OVERHEAD_of                   PROFILING                           65           0    2.1    0.0     2.1    0.0   1861         0
  DONT_CARE                     MAIN                                64           0    0.0    0.0     0.0    0.0      0         0
  PINNED                        SYSTEM                              63           0    0.0    0.0     0.0    0.0      0         0
  IDLE                          IDLE                                62           0    0.0    0.0     0.0    0.0      0         0
