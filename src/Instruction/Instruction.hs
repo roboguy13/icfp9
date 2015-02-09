@@ -81,6 +81,7 @@ instance Show Instruction where
   show (UndefinedInstruction instr word) = "undefined " ++ show0x instr ++ " " ++ show0x word
 
 -- TODO: Test
+{-
 instance Read Instruction where
   readsPrec _ = go . words
     where
@@ -113,4 +114,4 @@ instance Read Instruction where
       go ("undefined":a:b  :rest) = [(UndefinedInstruction (read a) (read b), unwords rest)]
 
   readList = map read . lines
-
+-}

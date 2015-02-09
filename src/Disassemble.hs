@@ -15,5 +15,5 @@ main = do
 
   program <- BS.readFile programName
 
-  mapM_ print $ readProgram program
+  mapM_ print . map readInstruction $ programWords program
 

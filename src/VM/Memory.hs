@@ -1,42 +1,90 @@
-{-# LANGUAGE BangPatterns #-}
 module VM.Memory
+  (Platter
+  ,ArrayIx
+  ,ArrayId
+  ,Memory
+
+  ,loadIntoMemory
+
+  ,loadMemZeroArray
+
+  ,getMemPlatter
+  ,setMemPlatter
+
+  ,allocateMemArray
+  ,freeMemArray
+  )
   where
 
-import Data.Vector.Unboxed (Vector)
-import qualified Data.Vector.Unboxed as V
-import Data.IntMap.Strict  (IntMap, delete)
+import           Data.IntMap.Strict  (IntMap, (!))
 import qualified Data.IntMap.Strict as I
-import Data.Word
 
-type Platter = Word32
-type Page    = Vector Platter
+import           Data.Word
+
+import           Data.ByteString (ByteString)
+
+import Debug.Trace
+
+type Platter   = Word32
+type ArrayId   = Word32
+type ArrayIx   = Word32
 
 data Memory = Memory
-  { freePages :: [Int]
-  , pagePool  :: IntMap Page
-  , lastAlloc :: !Int
+  { freeList  :: [Int]
+  , arrayPool :: IntMap (IntMap Platter)
   }
+  deriving Show
 
-freePage :: Int -> Memory -> Memory
-freePage ix memory =
-  memory
-    { freePages = ix : freePages memory
-    , pagePool  = delete ix (pagePool memory)
+-- | Loads a program into 0th array.
+loadIntoMemory :: [Platter] -> Memory
+loadIntoMemory prog
+  = Memory
+    { freeList  = [1]
+    , arrayPool = I.fromList [(0, loadPlatters prog)]
     }
 
-allocPage :: Memory -> (Int, Memory)
-allocPage memory =
-  let newIx = lastAlloc memory + 1
-  in
-  (newIx
-  ,memory { lastAlloc = newIx }
-  )
+getArray :: ArrayId -> Memory -> IntMap Platter
+getArray arrId mem = arrayPool mem ! fromIntegral arrId
 
-memIx :: Int -> Int -> Memory -> Platter
-memIx i j memory = (pagePool memory I.! j) V.! i
-{-# INLINE memIx #-}
+loadMemZeroArray :: ArrayId -> Memory -> Memory
+loadMemZeroArray arrId mem
+  = mem { arrayPool = I.insert 0 (getArray arrId mem) (arrayPool mem) }
 
-setPlatter :: Int -> Int -> Platter -> Memory -> Memory
-setPlatter i j platter memory = undefined
-{-# INLINE setPlatter #-}
+loadPlatters :: [Platter] -> IntMap Platter
+loadPlatters = I.fromList . zip [0..]
+
+
+getMemPlatter :: ArrayId -> ArrayIx -> Memory -> Platter
+getMemPlatter arrId ix mem
+  = (arrayPool mem ! fromIntegral arrId) ! fromIntegral ix
+
+setMemPlatter :: ArrayId -> ArrayIx -> Platter -> Memory -> Memory
+setMemPlatter arrId ix newVal mem
+  = mem
+    { arrayPool = I.adjust (\arr -> I.insert (fromIntegral ix) newVal arr)
+                           (fromIntegral arrId)
+                           (arrayPool mem)
+    }
+
+allocateMemArray :: Word32 -> Memory -> (ArrayId, Memory)
+allocateMemArray size mem
+  = (newId, mem { freeList  = drop 1 (freeList mem)
+                , arrayPool = I.insert (fromIntegral newId)
+                                       (I.fromList . zip [0..fromIntegral size] $ repeat 0)
+                                       (arrayPool mem)
+                })
+  where
+    newId = case freeList mem of
+      (arrId:_) -> fromIntegral arrId
+      []        -> succ . fromIntegral . fst . I.findMax $ arrayPool mem
+
+freeMemArray :: ArrayId -> Memory -> Memory
+freeMemArray arrId mem
+  = mem
+    { freeList  = arrIdInt : freeList mem
+    , arrayPool = I.delete arrIdInt (arrayPool mem)
+    }
+  where
+    arrIdInt :: Int
+    arrIdInt = fromIntegral arrId
 

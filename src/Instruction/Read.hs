@@ -1,6 +1,7 @@
 {-# LANGUAGE BangPatterns #-}
 module Instruction.Read
-  (readProgram
+  (readInstruction
+  ,programWords
   )
   where
 
@@ -11,9 +12,6 @@ import Data.Word
 import Data.Binary.Strict.Get
 import Data.ByteString (ByteString)
 import Control.Applicative
-
-readProgram :: ByteString -> [Instruction]
-readProgram = map readInstruction . programWords
 
 programWords :: ByteString -> [MachineWord]
 programWords b = case fst $ runGet go b of
@@ -62,10 +60,10 @@ readInstruction w = {-# SCC "readInstruction" #-}
     7  ->         Halt
 
     8  ->         Allocation     (bRegNum $ readRegisterTriplet w) (cRegNum $ readRegisterTriplet w)
-    9  ->         Abandoment                                       (cRegNum $ readRegisterTriplet w)
+    9  ->         Abandonment                                      (cRegNum $ readRegisterTriplet w)
     10 ->         Output                                           (cRegNum $ readRegisterTriplet w)
     11 ->         Input                                            (cRegNum $ readRegisterTriplet w)
-    12 ->         LoadProgram    (cRegNum $ readRegisterTriplet w) (cRegNum $ readRegisterTriplet w)
+    12 ->         LoadProgram    (bRegNum $ readRegisterTriplet w) (cRegNum $ readRegisterTriplet w)
 
     13 -> uncurry Orthography    (readOrthographyArgs w)
     n  -> UndefinedInstruction n w
