@@ -1,4 +1,4 @@
-{-# LANGUAGE RankNTypes #-}
+{-# LANGUAGE BangPatterns #-}
 module VM.Machine
   (module Control.Monad.State
   ,Platter
@@ -46,7 +46,7 @@ type RegisterId = Word32
 
 data Machine = Machine
   { memory    :: Memory
-  , finger    :: Platter
+  , finger    :: !Platter
   , registers :: IntMap Register
   } deriving Show
 
@@ -110,5 +110,6 @@ loadZeroArray arrId = modifyMemory (loadMemZeroArray arrId)
 
 modifyMemory :: (Memory -> Memory) -> Runtime ()
 modifyMemory f
-  = modify (\machine -> machine { memory = f (memory machine)})
+  = {-# SCC "modifyMemory" #-} modify (\machine -> machine { memory = f (memory machine)})
+{-# INLINE modifyMemory #-}
 

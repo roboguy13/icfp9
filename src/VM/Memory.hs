@@ -56,7 +56,8 @@ loadPlatters = I.fromList . zip [0..]
 
 getMemPlatter :: ArrayId -> ArrayIx -> Memory -> Platter
 getMemPlatter arrId ix mem
-  = (arrayPool mem ! fromIntegral arrId) ! fromIntegral ix
+  = {-# SCC "getMemPlatter" #-} (arrayPool mem ! fromIntegral arrId) ! fromIntegral ix
+{-# INLINE getMemPlatter #-}
 
 setMemPlatter :: ArrayId -> ArrayIx -> Platter -> Memory -> Memory
 setMemPlatter arrId ix newVal mem

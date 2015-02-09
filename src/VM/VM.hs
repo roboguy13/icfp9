@@ -18,13 +18,14 @@ runProgram :: ByteString -> IO ()
 runProgram = evalStateT (forever spinCycle) . loadMachine
 
 spinCycle :: Runtime ()
-spinCycle = do
+spinCycle = {-# SCC "spinCycle" #-} do
   machine <- get
   instr <- currInstruction
 --  liftIO $ print instr
 --  printRegisters
   runInstruction instr
   incrFinger
+{-# INLINE spinCycle #-}
 
 runInstruction :: Instruction -> Runtime ()
 runInstruction instruction
