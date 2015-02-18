@@ -1,6 +1,6 @@
 {-# LANGUAGE BangPatterns #-}
 module VM.Machine
-  (module Control.Monad.State
+  (module Control.Monad.State.Strict
   ,Platter
   ,Register
   ,RegisterId
@@ -32,7 +32,7 @@ import           VM.Memory
 import           Instruction.Instruction
 import           Instruction.Read
 
-import           Control.Monad.State
+import           Control.Monad.State.Strict
 
 import           Data.IntMap.Strict (IntMap, (!))
 import qualified Data.IntMap.Strict as I
@@ -84,8 +84,8 @@ allocateArray size = do
   return newId
 
 freeArray :: ArrayId -> Runtime ()
-freeArray arrId =
-  modifyMemory (freeMemArray arrId)
+freeArray arrId
+  = modifyMemory (freeMemArray arrId)
 
 getRegister :: RegisterId -> Runtime Register
 getRegister regId = do

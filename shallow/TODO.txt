@@ -1,0 +1,7 @@
+- Give files better names and move all the bindings to more appropriately named files.
+
+- Investigate the connection between lenses and (#).
+
+- Look into Edward Kmett's Hask library to see if there are some ideas that could be of use here.
+
+- See if Yoneda would be of any use.

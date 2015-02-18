@@ -29,7 +29,8 @@ spinCycle = {-# SCC "spinCycle" #-} do
 
 runInstruction :: Instruction -> Runtime ()
 runInstruction instruction
-  = case instruction of
+  = {-# SCC "runInstruction" #-}
+    case instruction of
       CondMove   args              -> condMove args
       ArrayIndex args              -> arrayIndex args
       ArrayAmendment args          -> arrayAmendment args
@@ -46,6 +47,7 @@ runInstruction instruction
       LoadProgram bRegNum cRegNum  -> loadProgram bRegNum cRegNum
       Orthography aRegNum val      -> orthography aRegNum val
       i@(UndefinedInstruction _ _) -> error $ "Tried to run instruction " ++ show i
+{-# INLINE runInstruction #-}
 
 condMove :: RegisterNumTriplet -> Runtime ()
 condMove args = do
