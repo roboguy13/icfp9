@@ -1,0 +1,363 @@
+	Sun Feb 22 21:39 2015 Time and Allocation Profiling Report  (Final)
+
+	   Main +RTS -pa -RTS
+
+	total time  =       11.77 secs   (11772 ticks @ 1000 us, 1 processor)
+	total alloc = 11,406,397,008 bytes  (excludes profiling overheads)
+
+COST CENTRE            MODULE                           %time %alloc  ticks     bytes
+
+getMemPlatter.platter  VM.Memory                         11.3    0.0   1327         0
+GC                     GC                                 8.8    0.0   1041      1112
+getRegister            VM.Machine                         8.1    2.2    949 250363840
+setRegister.\          VM.Machine                         7.9   14.4    935 1644173776
+liftBinOp              VM.VM                              6.3   11.4    737 1304148944
+runProgram             VM.VM                              5.4    7.7    634 882191288
+readInstruction        Instruction.Read                   5.2    5.1    615 582291952
+runInstruction         VM.VM                              4.7    2.1    554 243202592
+setMemPlatter          VM.Memory                          4.3    7.7    507 875887328
+loadProgram            VM.VM                              2.9    4.6    343 522626808
+spinCycle              VM.VM                              2.8    4.2    331 481194400
+getMemPlatter.array    VM.Memory                          2.6    0.0    309         0
+OVERHEAD_of            PROFILING                          2.2    0.0    263         0
+currInstruction        VM.Machine                         2.0    0.0    232         0
+arrayAmendment         VM.VM                              1.9    2.5    225 286418240
+arrayIndex             VM.VM                              1.9    3.2    223 359535184
+incrFinger.\           VM.Machine                         1.8    2.8    217 320796256
+getPlatter             VM.Machine                         1.8    0.0    208         0
+readRegisterTriplet    Instruction.Read                   1.6    6.9    194 791866016
+condMove               VM.VM                              1.6    1.8    194 208411824
+loadPlatters           VM.Memory                          1.4    4.5    169 514915000
+allocateMemArray       VM.Memory                          1.4    4.1    164 471591560
+modifyMemory           VM.Machine                         1.4    3.3    160 373607144
+SYSTEM                 SYSTEM                             1.2    0.2    142  22404448
+registers              VM.Machine                         1.2    0.0    140        16
+loadMemZeroArray       VM.Memory                          1.2    1.8    137 205876408
+aRegNum                Instruction.Instruction            0.8    0.0     97         0
+getArray               VM.Memory                          0.8    0.0     92         0
+setRegister            VM.Machine                         0.7    0.0     82         0
+addition               VM.VM                              0.6    1.2     66 142532888
+readOrthographyArgs    Instruction.Read                   0.5    1.0     61 117947768
+orthography            VM.VM                              0.5    2.1     61 235895408
+notAnd                 VM.VM                              0.4    0.6     51  73547312
+incrFinger             VM.Machine                         0.4    0.0     49         0
+programWords.go        Instruction.Read                   0.4    1.6     48 179585424
+cRegNum                Instruction.Instruction            0.4    0.0     47         0
+loadZeroArray          VM.Machine                         0.4    1.2     42 142534584
+jmp.\                  VM.Machine                         0.3    0.6     34  63348704
+bRegNum                Instruction.Instruction            0.3    0.0     31         0
+setPlatter             VM.Machine                         0.2    0.8     25  93085928
+jmp                    VM.Machine                         0.1    0.0     16         0
+notAnd.\               VM.VM                              0.1    0.1     15  16343824
+main                   Main                               0.0    0.0      3      7704
+loadMachine            VM.Machine                         0.0    0.0      2      2112
+IDLE                   IDLE                               0.0    0.0      0         0
+PINNED                 SYSTEM                             0.0    0.0      0         0
+DONT_CARE              MAIN                               0.0    0.0      0         0
+MAIN                   MAIN                               0.0    0.0      0      2392
+CAF                    GHC.Integer.Type                   0.0    0.0      0         0
+CAF                    GHC.Integer.Logarithms.Internals   0.0    0.0      0         0
+CAF                    GHC.Event.TimerManager             0.0    0.0      0         0
+CAF                    GHC.Event.Thread                   0.0    0.0      0         0
+CAF                    GHC.Event.Poll                     0.0    0.0      0         0
+CAF                    GHC.Event.PSQ                      0.0    0.0      0         0
+CAF                    GHC.Event.Manager                  0.0    0.0      0         0
+CAF                    GHC.Event.KQueue                   0.0    0.0      0         0
+CAF                    GHC.Event.Internal                 0.0    0.0      0         0
+CAF                    GHC.Event.Control                  0.0    0.0      0         0
+CAF                    GHC.Event.Array                    0.0    0.0      0         0
+CAF                    System.Posix.Internals             0.0    0.0      0         0
+CAF                    System.Exit                        0.0    0.0      0         0
+CAF                    GHC.Word                           0.0    0.0      0         0
+CAF                    GHC.TopHandler                     0.0    0.0      0        48
+CAF                    GHC.Show                           0.0    0.0      0         0
+CAF                    GHC.Real                           0.0    0.0      0         0
+CAF                    GHC.List                           0.0    0.0      0         0
+CAF                    GHC.IO.Handle.Types                0.0    0.0      0         0
+CAF                    GHC.IO.Handle.Text                 0.0    0.0      0         0
+CAF                    GHC.IO.Handle.Internals            0.0    0.0      0         0
+CAF                    GHC.IO.Handle.FD                   0.0    0.0      0     51776
+CAF                    GHC.IO.Handle                      0.0    0.0      0         0
+CAF                    GHC.IO.FD                          0.0    0.0      0         0
+CAF                    GHC.IO.Exception                   0.0    0.0      0         0
+CAF                    GHC.IO.Encoding.UTF8               0.0    0.0      0         0
+CAF                    GHC.IO.Encoding.UTF32              0.0    0.0      0         0
+CAF                    GHC.IO.Encoding.UTF16              0.0    0.0      0         0
+CAF                    GHC.IO.Encoding.Iconv              0.0    0.0      0       232
+CAF                    GHC.IO.Encoding.Failure            0.0    0.0      0         0
+CAF                    GHC.IO.Encoding                    0.0    0.0      0      2768
+CAF                    GHC.IO                             0.0    0.0      0         0
+CAF                    GHC.ForeignPtr                     0.0    0.0      0         0
+CAF                    GHC.Float.ConversionUtils          0.0    0.0      0         0
+CAF                    GHC.Float                          0.0    0.0      0         0
+CAF                    GHC.Exception                      0.0    0.0      0         0
+CAF                    GHC.Err                            0.0    0.0      0         0
+CAF                    GHC.Enum                           0.0    0.0      0         0
+CAF                    GHC.Conc.Sync                      0.0    0.0      0         0
+CAF                    GHC.Conc.Signal                    0.0    0.0      0       656
+CAF                    GHC.Arr                            0.0    0.0      0         0
+CAF                    Foreign.Marshal.Alloc              0.0    0.0      0         0
+CAF                    Data.Typeable.Internal             0.0    0.0      0         0
+CAF                    Control.Exception.Base             0.0    0.0      0         0
+CAF                    Data.ByteString.Internal           0.0    0.0      0         0
+CAF                    Data.IntMap.Base                   0.0    0.0      0         0
+CAF                    Data.Binary.Strict.Class           0.0    0.0      0         0
+CAF                    Data.Binary.Strict.Get             0.0    0.0      0         0
+readOpcode             Instruction.Read                   0.0    0.0      0         0
+CAF                    Instruction.Read                   0.0    0.0      0         0
+getMemPlatter          VM.Memory                          0.0    0.0      0         0
+showList               VM.Memory                          0.0    0.0      0         0
+showsPrec              VM.Memory                          0.0    0.0      0         0
+arrayPool              VM.Memory                          0.0    0.0      0         0
+freeList               VM.Memory                          0.0    0.0      0         0
+loadIntoMemory         VM.Memory                          0.0    0.0      0       112
+allocateMemArray.newId VM.Memory                          0.0    0.0      0       448
+freeMemArray           VM.Memory                          0.0    0.0      0        40
+freeMemArray.arrIdInt  VM.Memory                          0.0    0.0      0        80
+CAF                    VM.Memory                          0.0    0.0      0        16
+show                   Instruction.Instruction            0.0    0.0      0         0
+showList               Instruction.Instruction            0.0    0.0      0         0
+showsPrec              Instruction.Instruction            0.0    0.0      0         0
+regNumTriplet          Instruction.Instruction            0.0    0.0      0         0
+showTriplet            Instruction.Instruction            0.0    0.0      0         0
+show0x                 Instruction.Instruction            0.0    0.0      0         0
+CAF                    Instruction.Instruction            0.0    0.0      0         0
+showList               VM.Machine                         0.0    0.0      0         0
+showsPrec              VM.Machine                         0.0    0.0      0         0
+finger                 VM.Machine                         0.0    0.0      0         0
+memory                 VM.Machine                         0.0    0.0      0         0
+printRegisters         VM.Machine                         0.0    0.0      0         0
+allocateArray          VM.Machine                         0.0    0.0      0       168
+freeArray              VM.Machine                         0.0    0.0      0       360
+CAF                    VM.Machine                         0.0    0.0      0        16
+CAF                    Main                               0.0    0.0      0        16
+division               VM.VM                              0.0    0.0      0       176
+multiplication         VM.VM                              0.0    0.0      0       392
+halt                   VM.VM                              0.0    0.0      0         0
+allocation             VM.VM                              0.0    0.0      0      1064
+abandonment            VM.VM                              0.0    0.0      0       440
+output                 VM.VM                              0.0    0.0      0         0
+input                  VM.VM                              0.0    0.0      0         0
+CAF                    VM.VM                              0.0    0.0      0        16
+
+
+                                                                                    individual     inherited
+COST CENTRE                    MODULE                             no.     entries  %time %alloc   %time %alloc  ticks     bytes
+
+MAIN                           MAIN                                61           0    0.0    0.0   100.0  100.0      0      2392
+ main                          Main                               123           0    0.0    0.0    87.6   99.2      3      7704
+  runProgram                   VM.VM                              125           0    5.4    7.7    87.5   99.2    634 882191288
+   getPlatter                  VM.Machine                         131    10024883    0.0    0.0     0.0    0.0      0         0
+   finger                      VM.Machine                         130    10024883    0.0    0.0     0.0    0.0      0         0
+   currInstruction             VM.Machine                         129    10024883    0.0    0.0     0.0    0.0      0         0
+   spinCycle                   VM.VM                              128    10024883    2.8    4.2    80.4   86.0    331 481194400
+    incrFinger                 VM.Machine                         154           0    0.4    0.0     2.3    2.8     49         0
+     incrFinger.\              VM.Machine                         155    10024883    1.8    2.8     1.8    2.8    217 320796256
+      finger                   VM.Machine                         156    10024883    0.0    0.0     0.0    0.0      0         0
+    currInstruction            VM.Machine                         133           0    2.0    0.0    21.8   13.1    232         0
+     readInstruction           Instruction.Read                   145    10024883    5.2    5.1     7.4   13.1    615 582291952
+      bRegNum                  Instruction.Instruction            186     1979654    0.0    0.0     0.0    0.0      0         0
+      readOrthographyArgs      Instruction.Read                   175     2106209    0.5    1.0     0.5    1.0     61 117947720
+      cRegNum                  Instruction.Instruction            172     1979659    0.0    0.0     0.0    0.0      0         0
+      readRegisterTriplet      Instruction.Read                   150     9898325    1.6    6.9     1.6    6.9    194 791866016
+      readOpcode               Instruction.Read                   146    10024883    0.0    0.0     0.0    0.0      0         0
+     getPlatter                VM.Machine                         136           0    1.2    0.0    12.4    0.0    147         0
+      getMemPlatter.platter    VM.Memory                          144    10024883    9.0    0.0     9.0    0.0   1059         0
+      getMemPlatter.array      VM.Memory                          137    10024883    2.2    0.0     2.2    0.0    259         0
+       arrayPool               VM.Memory                          138    10024883    0.0    0.0     0.0    0.0      0         0
+     getMemPlatter             VM.Memory                          135    10024883    0.0    0.0     0.0    0.0      0         0
+     memory                    VM.Machine                         134    10024883    0.0    0.0     0.0    0.0      0         0
+    runInstruction             VM.VM                              132    10024883    4.7    2.1    53.6   65.9    554 243202592
+     abandonment               VM.VM                              266           5    0.0    0.0     0.0    0.0      0       440
+      freeArray                VM.Machine                         268           5    0.0    0.0     0.0    0.0      0       360
+       modifyMemory            VM.Machine                         269           5    0.0    0.0     0.0    0.0      0       840
+        freeMemArray           VM.Memory                          271           5    0.0    0.0     0.0    0.0      0        40
+         freeList              VM.Memory                          276           3    0.0    0.0     0.0    0.0      0         0
+         freeMemArray.arrIdInt VM.Memory                          273           5    0.0    0.0     0.0    0.0      0        80
+         arrayPool             VM.Memory                          272           5    0.0    0.0     0.0    0.0      0         0
+        memory                 VM.Machine                         270           5    0.0    0.0     0.0    0.0      0         0
+      getRegister              VM.Machine                         267           5    0.0    0.0     0.0    0.0      0        80
+       registers               VM.Machine                         274           5    0.0    0.0     0.0    0.0      0         0
+     allocation                VM.VM                              253           7    0.0    0.0     1.4    4.1      0      1064
+      setRegister              VM.Machine                         258           7    0.0    0.0     0.0    0.0      0         0
+       setRegister.\           VM.Machine                         259           7    0.0    0.0     0.0    0.0      0      1624
+        registers              VM.Machine                         265           7    0.0    0.0     0.0    0.0      0         0
+      modifyMemory             VM.Machine                         257           7    0.0    0.0     0.0    0.0      0         0
+      allocateArray            VM.Machine                         255           7    0.0    0.0     1.4    4.1      0       168
+       memory                  VM.Machine                         260           7    0.0    0.0     0.0    0.0      0         0
+       allocateMemArray        VM.Memory                          256           7    1.4    4.1     1.4    4.1    164 471591560
+        freeList               VM.Memory                          275           5    0.0    0.0     0.0    0.0      0         0
+        arrayPool              VM.Memory                          264           7    0.0    0.0     0.0    0.0      0         0
+        allocateMemArray.newId VM.Memory                          261           7    0.0    0.0     0.0    0.0      0       448
+         arrayPool             VM.Memory                          277           2    0.0    0.0     0.0    0.0      0         0
+         freeList              VM.Memory                          262           7    0.0    0.0     0.0    0.0      0         0
+      getRegister              VM.Machine                         254           7    0.0    0.0     0.0    0.0      0       112
+       registers               VM.Machine                         263           7    0.0    0.0     0.0    0.0      0         0
+     arrayAmendment            VM.VM                              242      895057    1.9    2.5     8.6   12.6    225 286418240
+      cRegNum                  Instruction.Instruction            252      895057    0.1    0.0     0.1    0.0     10         0
+      bRegNum                  Instruction.Instruction            251      895057    0.0    0.0     0.0    0.0      5         0
+      aRegNum                  Instruction.Instruction            248      895057    0.1    0.0     0.1    0.0     13         0
+      setPlatter               VM.Machine                         244      895057    0.2    0.8     4.9    9.7     25  93085928
+       modifyMemory            VM.Machine                         245      895057    0.4    1.2     4.7    8.9     50 136048664
+        setMemPlatter          VM.Memory                          247      895057    4.3    7.7     4.3    7.7    507 875887328
+         arrayPool             VM.Memory                          250      895057    0.0    0.0     0.0    0.0      0         0
+        memory                 VM.Machine                         246      895057    0.0    0.0     0.0    0.0      0         0
+      getRegister              VM.Machine                         243     2685171    1.4    0.4     1.5    0.4    169  42962736
+       registers               VM.Machine                         249     2685171    0.1    0.0     0.1    0.0     12         0
+     arrayIndex                VM.VM                              227     1021407    1.9    3.2     8.0    5.5    223 359535184
+      cRegNum                  Instruction.Instruction            241     1021406    0.1    0.0     0.1    0.0     16         0
+      bRegNum                  Instruction.Instruction            236     1021406    0.1    0.0     0.1    0.0      9         0
+      aRegNum                  Instruction.Instruction            233     1021406    0.2    0.0     0.2    0.0     29         0
+      setRegister              VM.Machine                         230     1021407    0.0    0.0     1.1    2.1      5         0
+       setRegister.\           VM.Machine                         231     1021407    1.1    2.1     1.1    2.1    127 236966264
+        registers              VM.Machine                         232     1021406    0.0    0.0     0.0    0.0      0         0
+      getPlatter               VM.Machine                         229     1021407    0.5    0.0     3.2    0.0     61         0
+       getMemPlatter.platter   VM.Memory                          240     1021406    2.3    0.0     2.3    0.0    268         0
+       getMemPlatter           VM.Memory                          239     1021406    0.0    0.0     0.0    0.0      0         0
+       getMemPlatter.array     VM.Memory                          235     1021406    0.4    0.0     0.4    0.0     50         0
+        arrayPool              VM.Memory                          238     1021406    0.0    0.0     0.0    0.0      0         0
+       memory                  VM.Machine                         234     1021406    0.0    0.0     0.0    0.0      0         0
+      getRegister              VM.Machine                         228     2042814    1.1    0.3     1.3    0.3    130  32684992
+       registers               VM.Machine                         237     2042812    0.2    0.0     0.2    0.0     20         0
+     division                  VM.VM                              217           0    0.0    0.0     0.0    0.0      0       144
+      liftBinOp                VM.VM                              218           2    0.0    0.0     0.0    0.0      0       880
+       cRegNum                 Instruction.Instruction            226           2    0.0    0.0     0.0    0.0      0         0
+       bRegNum                 Instruction.Instruction            224           2    0.0    0.0     0.0    0.0      0         0
+       aRegNum                 Instruction.Instruction            223           2    0.0    0.0     0.0    0.0      0         0
+       setRegister             VM.Machine                         220           2    0.0    0.0     0.0    0.0      0         0
+        setRegister.\          VM.Machine                         221           2    0.0    0.0     0.0    0.0      0       464
+         registers             VM.Machine                         222           2    0.0    0.0     0.0    0.0      0         0
+       getRegister             VM.Machine                         219           4    0.0    0.0     0.0    0.0      0        64
+        registers              VM.Machine                         225           4    0.0    0.0     0.0    0.0      0         0
+     multiplication            VM.VM                              206           0    0.0    0.0     0.0    0.0      0       360
+      liftBinOp                VM.VM                              207           5    0.0    0.0     0.0    0.0      0      2200
+       cRegNum                 Instruction.Instruction            215           5    0.0    0.0     0.0    0.0      0         0
+       bRegNum                 Instruction.Instruction            213           5    0.0    0.0     0.0    0.0      0         0
+       aRegNum                 Instruction.Instruction            212           5    0.0    0.0     0.0    0.0      0         0
+       setRegister             VM.Machine                         209           5    0.0    0.0     0.0    0.0      0         0
+        setRegister.\          VM.Machine                         210           5    0.0    0.0     0.0    0.0      0      1160
+         registers             VM.Machine                         211           5    0.0    0.0     0.0    0.0      0         0
+       getRegister             VM.Machine                         208          10    0.0    0.0     0.0    0.0      0       160
+        registers              VM.Machine                         214          10    0.0    0.0     0.0    0.0      0         0
+     notAnd                    VM.VM                              189           0    0.4    0.6     5.7    6.9     51  73547280
+      liftBinOp                VM.VM                              190     1021490    2.6    3.8     5.3    6.3    307 433111760
+       cRegNum                 Instruction.Instruction            199     1021489    0.1    0.0     0.1    0.0      8         0
+       bRegNum                 Instruction.Instruction            197     1021489    0.0    0.0     0.0    0.0      3         0
+       notAnd.\                VM.VM                              196     1021489    0.1    0.1     0.1    0.1     15  16343824
+       aRegNum                 Instruction.Instruction            195     1021489    0.1    0.0     0.1    0.0      9         0
+       setRegister             VM.Machine                         192     1021490    0.1    0.0     1.1    2.1     13         0
+        setRegister.\          VM.Machine                         193     1021490    1.0    2.1     1.0    2.1    116 236985520
+         registers             VM.Machine                         194     1021489    0.0    0.0     0.0    0.0      0         0
+       getRegister             VM.Machine                         191     2042980    1.0    0.3     1.3    0.3    120  32687648
+        registers              VM.Machine                         198     2042978    0.3    0.0     0.3    0.0     32         0
+     loadProgram               VM.VM                              166     1979647    2.9    4.6     8.8   10.8    343 522626808
+      loadZeroArray            VM.Machine                         169     1979647    0.4    1.2     3.2    5.1     42 142534584
+       modifyMemory            VM.Machine                         170     1979647    0.9    2.1     2.9    3.9    110 237557640
+        loadMemZeroArray       VM.Memory                          183     1979647    1.2    1.8     1.9    1.8    137 205876408
+         getArray              VM.Memory                          185     1979647    0.8    0.0     0.8    0.0     92         0
+          arrayPool            VM.Memory                          187     1979647    0.0    0.0     0.0    0.0      0         0
+         arrayPool             VM.Memory                          184     1979647    0.0    0.0     0.0    0.0      0         0
+        memory                 VM.Machine                         182     1979647    0.0    0.0     0.0    0.0      0         0
+      jmp                      VM.Machine                         168     1979647    0.1    0.0     0.4    0.6     16         0
+       jmp.\                   VM.Machine                         171     1979647    0.3    0.6     0.3    0.6     34  63348704
+      getRegister              VM.Machine                         167     3959294    1.9    0.6     2.2    0.6    223  63348704
+       registers               VM.Machine                         173     3959294    0.3    0.0     0.3    0.0     40         0
+     orthography               VM.VM                              163     2106209    0.5    2.1     3.4    6.4     61 235895408
+      setRegister              VM.Machine                         164     2106209    0.2    0.0     2.9    4.3     25         0
+       setRegister.\           VM.Machine                         165     2106209    2.7    4.3     2.7    4.3    312 488640488
+        registers              VM.Machine                         174     2106209    0.0    0.0     0.0    0.0      0         0
+     addition                  VM.VM                              158           0    0.6    1.2     9.0   13.5     66 142532856
+      liftBinOp                VM.VM                              159     1979623    3.7    7.6     8.4   12.2    430 871034104
+       cRegNum                 Instruction.Instruction            181     1979622    0.1    0.0     0.1    0.0     13         0
+       bRegNum                 Instruction.Instruction            179     1979622    0.1    0.0     0.1    0.0     10         0
+       aRegNum                 Instruction.Instruction            178     1979622    0.3    0.0     0.3    0.0     41         0
+       setRegister             VM.Machine                         161     1979623    0.2    0.0     2.3    4.0     20         0
+        setRegister.\          VM.Machine                         162     1979623    2.1    4.0     2.1    4.0    251 459272376
+         registers             VM.Machine                         177     1979622    0.0    0.0     0.0    0.0      0         0
+       getRegister             VM.Machine                         160     3959246    1.7    0.6     1.9    0.6    202  63347904
+        registers              VM.Machine                         180     3959244    0.2    0.0     0.2    0.0     22         0
+     condMove                  VM.VM                              147     1021431    1.6    1.8     4.0    3.9    194 208411824
+      bRegNum                  Instruction.Instruction            204      958215    0.0    0.0     0.0    0.0      4         0
+      aRegNum                  Instruction.Instruction            203      958215    0.0    0.0     0.0    0.0      5         0
+      setRegister              VM.Machine                         200      958215    0.2    0.0     1.3    1.9     19         0
+       setRegister.\           VM.Machine                         201      958215    1.1    1.9     1.1    1.9    129 222305880
+        registers              VM.Machine                         202      958215    0.0    0.0     0.0    0.0      0         0
+      cRegNum                  Instruction.Instruction            149     1021431    0.0    0.0     0.0    0.0      0         0
+      getRegister              VM.Machine                         148     2042862    0.9    0.1     1.0    0.1    105  15331440
+       registers               VM.Machine                         152     1979646    0.1    0.0     0.1    0.0     14        16
+   loadMachine                 VM.Machine                         126           1    0.0    0.0     1.7    5.5      2       160
+    programWords.go            Instruction.Read                   143           0    0.4    1.6     0.4    1.6     48 179585424
+    loadIntoMemory             VM.Memory                          127           1    0.0    0.0     1.3    3.9      0       112
+     loadPlatters              VM.Memory                          140           0    1.3    3.9     1.3    3.9    151 443080744
+ CAF                           VM.VM                              121           0    0.0    0.0     0.0    0.0      0        16
+  division                     VM.VM                              216           1    0.0    0.0     0.0    0.0      0        32
+  multiplication               VM.VM                              205           1    0.0    0.0     0.0    0.0      0        32
+  notAnd                       VM.VM                              188           1    0.0    0.0     0.0    0.0      0        32
+  addition                     VM.VM                              157           1    0.0    0.0     0.0    0.0      0        32
+  runProgram                   VM.VM                              124           1    0.0    0.0     0.0    0.0      0         0
+ CAF                           Main                               120           0    0.0    0.0     0.0    0.0      0        16
+  main                         Main                               122           1    0.0    0.0     0.0    0.0      0         0
+ CAF                           VM.Machine                         119           0    0.0    0.0     0.0    0.0      0        16
+  incrFinger                   VM.Machine                         153           1    0.0    0.0     0.0    0.0      0         0
+  loadMachine                  VM.Machine                         141           0    0.0    0.0     0.0    0.0      0      1952
+   programWords.go             Instruction.Read                   142           1    0.0    0.0     0.0    0.0      0         0
+ CAF                           Instruction.Instruction            118           0    0.0    0.0     0.0    0.0      0         0
+  regNumTriplet                Instruction.Instruction            151           1    0.0    0.0     0.0    0.0      0         0
+ CAF                           VM.Memory                          117           0    0.0    0.0     0.2    0.6      0        16
+  loadPlatters                 VM.Memory                          139           1    0.2    0.6     0.2    0.6     18  71834256
+ CAF                           Instruction.Read                   116           0    0.0    0.0     0.0    0.0      0         0
+  readOrthographyArgs          Instruction.Read                   176           0    0.0    0.0     0.0    0.0      0        48
+ CAF                           Data.Binary.Strict.Get             115           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           Data.Binary.Strict.Class           114           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           Data.IntMap.Base                   113           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           Data.ByteString.Internal           112           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           Control.Exception.Base             111           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           Data.Typeable.Internal             110           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           Foreign.Marshal.Alloc              109           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.Arr                            108           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.Conc.Signal                    107           0    0.0    0.0     0.0    0.0      0       656
+ CAF                           GHC.Conc.Sync                      106           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.Enum                           105           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.Err                            104           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.Exception                      103           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.Float                          102           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.Float.ConversionUtils          101           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.ForeignPtr                     100           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.IO                              99           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.IO.Encoding                     98           0    0.0    0.0     0.0    0.0      0      2768
+ CAF                           GHC.IO.Encoding.Failure             97           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.IO.Encoding.Iconv               96           0    0.0    0.0     0.0    0.0      0       232
+ CAF                           GHC.IO.Encoding.UTF16               95           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.IO.Encoding.UTF32               94           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.IO.Encoding.UTF8                93           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.IO.Exception                    92           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.IO.FD                           91           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.IO.Handle                       90           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.IO.Handle.FD                    89           0    0.0    0.0     0.0    0.0      0     51776
+ CAF                           GHC.IO.Handle.Internals             88           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.IO.Handle.Text                  87           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.IO.Handle.Types                 86           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.List                            85           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.Real                            84           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.Show                            83           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.TopHandler                      82           0    0.0    0.0     0.0    0.0      0        48
+ CAF                           GHC.Word                            81           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           System.Exit                         80           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           System.Posix.Internals              79           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.Event.Array                     78           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.Event.Control                   77           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.Event.Internal                  76           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.Event.KQueue                    75           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.Event.Manager                   74           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.Event.PSQ                       73           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.Event.Poll                      72           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.Event.Thread                    71           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.Event.TimerManager              70           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.Integer.Logarithms.Internals    69           0    0.0    0.0     0.0    0.0      0         0
+ CAF                           GHC.Integer.Type                    68           0    0.0    0.0     0.0    0.0      0         0
+ SYSTEM                        SYSTEM                              67           0    1.2    0.2     1.2    0.2    142  22404448
+ GC                            GC                                  66           0    8.8    0.0     8.8    0.0   1041      1112
+ OVERHEAD_of                   PROFILING                           65           0    2.2    0.0     2.2    0.0    263         0
+ DONT_CARE                     MAIN                                64           0    0.0    0.0     0.0    0.0      0         0
+ PINNED                        SYSTEM                              63           0    0.0    0.0     0.0    0.0      0         0
+ IDLE                          IDLE                                62           0    0.0    0.0     0.0    0.0      0         0
