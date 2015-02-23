@@ -1,3 +1,4 @@
+{-# LANGUAGE ScopedTypeVariables #-}
 module VM.VM
   (runProgram
   )
@@ -10,7 +11,9 @@ import           Data.ByteString (ByteString)
 
 import           Data.Bits
 
+import           System.IO
 import           System.Exit
+import           Control.Exception
 
 import           Data.Char (chr, ord)
 
@@ -111,7 +114,7 @@ output cRegNum = do
 -- TODO: Add EOF support
 input :: RegisterNum -> Runtime ()
 input cRegNum = do
-  c <- liftIO getChar
+  c <- liftIO . catch getChar $ \(e :: IOError) -> return (chr 0xff)
   setRegister cRegNum . fromIntegral $ ord c
 
 loadProgram :: RegisterNum -> RegisterNum -> Runtime ()
