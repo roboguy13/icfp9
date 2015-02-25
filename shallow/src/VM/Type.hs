@@ -11,6 +11,7 @@ type Instruction a = StateT Machine IO a
 type Platter  = Word32
 type Register = Platter
 newtype ArrayNum    = ArrayNum Word32
+  deriving Show
 
 data Machine =
   Machine
@@ -20,5 +21,6 @@ data Machine =
     , freeList  :: [ArrayNum]
     , ip        :: Platter
     }
+    deriving Show
 
 

@@ -25,6 +25,8 @@ import           Data.IntMap.Strict ((!))
 
 import VM.Type
 
+import Debug.Trace
+
 newtype RegisterNum = RegisterNum Word8
 type ArrayIndex     = Word32
 
@@ -56,15 +58,28 @@ getPlatter :: ArrayIndex
 getPlatter arrIx (ArrayNum 0)
   = withMachine $ (! fromIntegral arrIx) . zeroArray
 
+getPlatter arrIx (ArrayNum arrNum)
+  = withMachine
+    $ indexArr
+    . arrays
+  where
+    indexArr arr = (arr ! fromIntegral arrNum)
+                          ! fromIntegral arrIx
+
+
 currIp :: Instruction Platter
 currIp = fmap ip get
 
 jmp :: ArrayIndex -> Instruction ()
 jmp loc = modify (\machine -> machine { ip = loc })
 
+succ' :: (Enum a, Show a) => a -> a
+succ' n | traceShow n False = undefined
+succ' n                     = succ n
+
 incrIp :: Instruction ()
 incrIp = modify (\machine ->
-  machine { ip = succ (ip machine) })
+  machine { ip = ip machine + 1 })
 
 zero :: ArrayNum
 zero = ArrayNum 0
@@ -76,8 +91,9 @@ withMachine :: (Machine -> a) -> Instruction a
 withMachine f = fmap f get
 
 loadZero :: ArrayNum -> StateT Machine IO ()
+loadZero (ArrayNum 0)      = return ()
 loadZero (ArrayNum arrNum) = do
-  arr <- fmap zeroArray get
+  arr <- fmap ((! fromIntegral arrNum) . arrays) get
   modifyZeroArray (const arr)
 
 

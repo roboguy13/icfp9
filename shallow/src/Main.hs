@@ -22,10 +22,10 @@ runProgram = evalStateT (forever spinCycle) . loadMachine
 loadMachine :: ByteString -> Machine
 loadMachine program =
   Machine
-    { registers = mempty
+    { registers = I.fromList . zip [0..7] $ repeat 0
     , zeroArray = I.fromList . zip [0..] $ platters program
     , arrays    = mempty
-    , freeList  = mempty
+    , freeList  = [ArrayNum 1]
     , ip        = 0
     }
 

@@ -9,6 +9,7 @@ import VM.Instruction
 import VM.Type
 
 import Data.Bits
+import Data.IntMap.Strict ((!))
 
 import System.Exit
 
@@ -16,7 +17,7 @@ import Control.Exception
 
 import Data.Char
 
-import Control.Monad.State (liftIO)
+import Control.Monad.State
 
 liftBinaryOp :: (Platter -> Platter -> Platter)
              -> Instruction ()
@@ -32,11 +33,15 @@ notAnd a b
 spinCycle :: Instruction ()
 spinCycle = do
   w <- (`getPlatter` array 0) =<< currIp
-  liftIO $ print (w `shiftR` 28)
+--  liftIO $ print (w `shiftR` 28)
   case w `shiftR` 28 of
     0 -> do  -- Conditional move
-      b <- regB # getReg
-      regA # setReg b
+      c <- regC # getReg
+      if c /= 0
+        then do
+          b <- regB # getReg
+          regA # setReg b
+        else return ()
 
     1 -> do  -- Array index
       b <- regB # getReg
@@ -88,7 +93,7 @@ spinCycle = do
       b <- regB # getReg
       c <- regC # getReg
       loadZero (array b)
-      jmp c
+      jmp (c-1)
 
     13 -> do  -- Orthography
       val <- orthographyVal

@@ -3,3 +3,5 @@
 !*/
 *.o
 *.hi
+orig/dist/*
+shallow/dist/*
