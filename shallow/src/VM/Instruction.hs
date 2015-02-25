@@ -5,7 +5,6 @@ module VM.Instruction
   )
   where
 
-import Memory.Memory
 import VM.Type
 
 infixl 0 #

@@ -8,7 +8,6 @@ module Memory.Memory
   ,jmp
   ,incrIp
   ,zero
-  ,array
   ,loadZero
   ,ArrayNum
   ,RegisterNum (..)
@@ -25,8 +24,6 @@ import           Data.IntMap.Strict ((!))
 
 import VM.Type
 
-import Debug.Trace
-
 newtype RegisterNum = RegisterNum Word8
 type ArrayIndex     = Word32
 
@@ -42,10 +39,10 @@ setPlatter :: Platter
            -> ArrayIndex
            -> ArrayNum
            -> Instruction ()
-setPlatter w arrIx (ArrayNum 0)
+setPlatter w arrIx 0
   = modifyZeroArray (I.insert (fromIntegral arrIx) w)
 
-setPlatter w arrIx (ArrayNum arrNum)
+setPlatter w arrIx arrNum
   = modifyArrays
   $ I.adjust
      (I.insert (fromIntegral arrIx)
@@ -55,10 +52,10 @@ setPlatter w arrIx (ArrayNum arrNum)
 getPlatter :: ArrayIndex
            -> ArrayNum
            -> Instruction Platter
-getPlatter arrIx (ArrayNum 0)
+getPlatter arrIx 0
   = withMachine $ (! fromIntegral arrIx) . zeroArray
 
-getPlatter arrIx (ArrayNum arrNum)
+getPlatter arrIx arrNum
   = withMachine
     $ indexArr
     . arrays
@@ -73,26 +70,19 @@ currIp = fmap ip get
 jmp :: ArrayIndex -> Instruction ()
 jmp loc = modify (\machine -> machine { ip = loc })
 
-succ' :: (Enum a, Show a) => a -> a
-succ' n | traceShow n False = undefined
-succ' n                     = succ n
-
 incrIp :: Instruction ()
 incrIp = modify (\machine ->
   machine { ip = ip machine + 1 })
 
 zero :: ArrayNum
-zero = ArrayNum 0
-
-array :: Platter -> ArrayNum
-array = ArrayNum
+zero = 0
 
 withMachine :: (Machine -> a) -> Instruction a
 withMachine f = fmap f get
 
 loadZero :: ArrayNum -> StateT Machine IO ()
-loadZero (ArrayNum 0)      = return ()
-loadZero (ArrayNum arrNum) = do
+loadZero 0      = return ()
+loadZero arrNum = do
   arr <- fmap ((! fromIntegral arrNum) . arrays) get
   modifyZeroArray (const arr)
 

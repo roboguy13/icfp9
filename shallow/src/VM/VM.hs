@@ -6,10 +6,8 @@ import Memory.Machine
 import Memory.Memory
 
 import VM.Instruction
-import VM.Type
 
 import Data.Bits
-import Data.IntMap.Strict ((!))
 
 import System.Exit
 
@@ -32,7 +30,7 @@ notAnd a b
 
 spinCycle :: Instruction ()
 spinCycle = do
-  w <- (`getPlatter` array 0) =<< currIp
+  w <- (`getPlatter` 0) =<< currIp
 --  liftIO $ print (w `shiftR` 28)
   case w `shiftR` 28 of
     0 -> do  -- Conditional move
@@ -46,14 +44,14 @@ spinCycle = do
     1 -> do  -- Array index
       b <- regB # getReg
       c <- regC # getReg
-      x <- getPlatter c (array b)
+      x <- getPlatter c b
       regA # setReg x
 
     2 -> do  -- Array amendment
       a <- regA # getReg
       b <- regB # getReg
       c <- regC # getReg
-      setPlatter c b (array a)
+      setPlatter c b a
 
     3 ->     -- Addition
       liftBinaryOp (+)
@@ -72,12 +70,12 @@ spinCycle = do
 
     8 -> do   -- Allocation
       c <- regC # getReg
-      ArrayNum arrNum <- allocArray c
+      arrNum <- allocArray c
       regB # setReg arrNum
 
     9 -> do   -- Abandonment
       c <- regC # getReg
-      freeArray (array c)
+      freeArray c
 
     10 -> do  -- Output
       c <- regC # getReg
@@ -86,17 +84,19 @@ spinCycle = do
     11 -> do  -- Input
       c <- liftIO
          . catch getChar
-         $ \(e :: IOError) -> return (chr 0xff)
+         $ \(_ :: IOError) -> return (chr 0xff)
       regC # setReg (fromIntegral (ord c))
 
     12 -> do  -- Load program
       b <- regB # getReg
       c <- regC # getReg
-      loadZero (array b)
+      loadZero b
       jmp (c-1)
 
     13 -> do  -- Orthography
       val <- orthographyVal
       orthographyReg # setReg val
+
+    i -> error $ "Invalid instruction: " ++ show i
 
   incrIp

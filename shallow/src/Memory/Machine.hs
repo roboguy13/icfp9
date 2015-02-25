@@ -24,8 +24,6 @@ import Memory.Memory
 
 import qualified Data.IntMap.Strict as I
 
-import Debug.Trace
-
 ipSegment :: (Word32 -> a) -> Instruction a
 ipSegment f = do
   theIp <- currIp
@@ -51,17 +49,19 @@ orthographyVal = ipSegment $ \w ->
 
 allocArray :: Platter -> Instruction ArrayNum
 allocArray size = do
-  machine <- get
-  ix <- case freeList machine of
+  fl <- fmap freeList get
+  ix <- case fl of
              [] ->
-                 return
-                  . fromIntegral
+                 fmap
+                  (fromIntegral
                   . (+1)
                   . fst
                   . I.findMax
-                  $ arrays machine
-             (ArrayNum 0:_) -> error "Array #0 is in free list"
-             (ArrayNum i:rest) -> do
+                  . arrays
+                  )
+                  get
+             (0:_) -> error "Array #0 is in free list"
+             (i:rest) -> do
                modify (\machine ->
                  machine { freeList = rest })
                return i
@@ -74,7 +74,7 @@ allocArray size = do
                           (zip [0..fromIntegral size-1]
                                (repeat 0)))
                          (arrays machine) })
-  return $ array ix
+  return ix
 
 freeArray :: ArrayNum -> Instruction ()
 freeArray arrNum = do

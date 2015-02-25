@@ -1,7 +1,6 @@
 import VM.VM
 import VM.Type
 
-import Control.Monad (forever)
 import Control.Monad.State
 
 import Data.ByteString (ByteString)
@@ -25,7 +24,7 @@ loadMachine program =
     { registers = I.fromList . zip [0..7] $ repeat 0
     , zeroArray = I.fromList . zip [0..] $ platters program
     , arrays    = mempty
-    , freeList  = [ArrayNum 1]
+    , freeList  = [1]
     , ip        = 0
     }
 
