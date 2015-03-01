@@ -2,7 +2,7 @@ module VM.Type
   where
 
 import Data.IntMap.Strict (IntMap)
-import Control.Monad.State
+import Control.Monad.State.Strict
 
 import Data.Word
 

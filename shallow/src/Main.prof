@@ -1,0 +1,185 @@
+	Wed Feb 25 14:45 2015 Time and Allocation Profiling Report  (Final)
+
+	   Main +RTS -p -RTS ../sandmark.umz
+
+	total time  =      140.04 secs   (140039 ticks @ 1000 us, 1 processor)
+	total alloc = 109,925,651,472 bytes  (excludes profiling overheads)
+
+COST CENTRE       MODULE         %time %alloc
+
+withMachine       Memory.Memory   22.5    0.0
+spinCycle         VM.VM           16.1    8.1
+ipSegment         Memory.Machine   9.4   14.6
+#                 VM.Instruction   6.6    0.0
+modifyRegisters.\ Memory.Memory    5.6   11.3
+getPlatter        Memory.Memory    5.6   22.5
+regB.\            Memory.Machine   3.6    3.9
+regC.\            Memory.Machine   3.1    4.1
+getReg            Memory.Memory    2.9    8.7
+regA.\            Memory.Machine   2.8    3.3
+incrIp.\          Memory.Memory    2.4    5.4
+orthographyReg.\  Memory.Machine   2.3    2.8
+ip                VM.Type          1.8    0.0
+setReg            Memory.Memory    1.7    6.2
+modifyZeroArray.\ Memory.Memory    1.4    3.2
+currIp            Memory.Memory    1.4    0.0
+zeroArray         VM.Type          1.2    0.0
+runProgram        Main             1.1    0.0
+modifyArrays.\    Memory.Memory    1.0    2.3
+allocArray.\      Memory.Machine   0.6    1.2
+
+
+                                                                    individual     inherited
+COST CENTRE               MODULE                  no.     entries  %time %alloc   %time %alloc
+
+MAIN                      MAIN                     61           0    0.0    0.0   100.0  100.0
+ main                     Main                    123           0    0.0    0.0   100.0  100.0
+  runProgram              Main                    125           0    1.1    0.0   100.0  100.0
+   loadMachine            Main                    132           1    0.0    0.0     0.0    0.0
+    platters              Main                    137           1    0.0    0.0     0.0    0.0
+     platters.go          Main                    141           0    0.0    0.0     0.0    0.0
+      platters.go         Main                    142           0    0.0    0.0     0.0    0.0
+   spinCycle              VM.VM                   127           0   16.1    8.1    98.9  100.0
+    freeArray             Memory.Machine          249      775124    0.0    0.0     0.1    0.1
+     freeArray.\          Memory.Machine          250      775124    0.1    0.1     0.1    0.1
+      freeList            VM.Type                 257      729672    0.0    0.0     0.0    0.0
+    allocArray            Memory.Machine          245      776400    0.1    0.1     0.7    1.3
+     arrays               VM.Type                 258       46725    0.0    0.0     0.0    0.0
+     allocArray.\         Memory.Machine          248      729675    0.0    0.0     0.0    0.0
+     allocArray.\         Memory.Machine          247      776400    0.6    1.2     0.6    1.2
+      arrays              VM.Type                 252      776400    0.0    0.0     0.0    0.0
+     freeList             VM.Type                 246      776400    0.0    0.0     0.0    0.0
+    setPlatter            Memory.Memory           241     7554656    0.3    0.8     2.7    6.4
+     modifyArrays         Memory.Memory           254     2721664    0.0    0.0     1.0    2.3
+      modifyArrays.\      Memory.Memory           255     2721664    1.0    2.3     1.0    2.3
+       arrays             VM.Type                 256     2721664    0.0    0.0     0.0    0.0
+     modifyZeroArray      Memory.Memory           242     4832992    0.0    0.0     1.4    3.2
+      modifyZeroArray.\   Memory.Memory           243     4832992    1.4    3.2     1.4    3.2
+       zeroArray          VM.Type                 244     4832992    0.0    0.0     0.0    0.0
+    jmp                   Memory.Memory           232     4924305    0.0    0.0     0.1    0.2
+     jmp.\                Memory.Memory           233     4924305    0.1    0.2     0.1    0.2
+    loadZero              Memory.Memory           231     4924305    0.0    0.0     0.0    0.0
+     arrays               VM.Type                 261           2    0.0    0.0     0.0    0.0
+     modifyZeroArray      Memory.Memory           259           2    0.0    0.0     0.0    0.0
+      modifyZeroArray.\   Memory.Memory           260           2    0.0    0.0     0.0    0.0
+    orthographyVal        Memory.Machine          188           0    0.1    0.0     6.1    5.7
+     ipSegment            Memory.Machine          189           0    1.6    2.4     5.9    5.7
+      currIp              Memory.Memory           212           0    0.2    0.0     0.4    0.0
+       ip                 VM.Type                 213    27787488    0.2    0.0     0.2    0.0
+      orthographyVal.\    Memory.Machine          211    27787488    0.6    0.4     0.6    0.4
+      #                   VM.Instruction          190    27787489    0.3    0.0     3.3    2.8
+       getPlatter         Memory.Memory           191    27787489    0.8    2.8     3.0    2.8
+        withMachine       Memory.Memory           192    27787489    2.2    0.0     2.3    0.0
+         zeroArray        VM.Type                 214    27787488    0.1    0.0     0.1    0.0
+    liftBinaryOp          VM.VM                   165           0    0.9    0.5    13.8   17.1
+     notAnd               VM.VM                   234     6054935    0.1    0.1     0.1    0.1
+     #                    VM.Instruction          168    46959968    1.3    0.0    12.9   16.5
+      setReg              Memory.Memory           183    11739992    0.4    1.4     1.5    3.8
+       modifyRegisters    Memory.Memory           184    11739992    0.1    0.0     1.1    2.5
+        modifyRegisters.\ Memory.Memory           185    11739992    1.0    2.5     1.0    2.5
+         registers        VM.Type                 216    11739992    0.0    0.0     0.0    0.0
+      regA                Memory.Machine          181           0    0.2    0.0     1.8    2.2
+       regA.\             Memory.Machine          218           0    0.1    0.0     0.1    0.0
+       ipSegment          Memory.Machine          182           0    0.6    1.0     1.6    2.2
+        currIp            Memory.Memory           219           0    0.1    0.0     0.2    0.0
+         ip               VM.Type                 220    11739992    0.1    0.0     0.1    0.0
+        regA.\            Memory.Machine          217    11739992    0.8    1.2     0.8    1.2
+      regC                Memory.Machine          177           0    0.2    0.0     1.5    2.2
+       regC.\             Memory.Machine          228           0    0.1    0.0     0.1    0.0
+       ipSegment          Memory.Machine          178           0    0.6    1.0     1.3    2.2
+        currIp            Memory.Memory           229           0    0.1    0.0     0.1    0.0
+         ip               VM.Type                 230    11739992    0.1    0.0     0.1    0.0
+        regC.\            Memory.Machine          227    11739992    0.5    1.2     0.5    1.2
+      getReg              Memory.Memory           175    23479984    0.6    2.4     1.6    2.4
+       withMachine        Memory.Memory           176    23479984    0.8    0.0     1.0    0.0
+        registers         VM.Type                 226    23479984    0.2    0.0     0.2    0.0
+      getPlatter          Memory.Memory           173    35219976    0.7    3.6     3.3    3.6
+       withMachine        Memory.Memory           174    35219976    2.4    0.0     2.5    0.0
+        zeroArray         VM.Type                 221    35219976    0.1    0.0     0.1    0.0
+      regB                Memory.Machine          171           0    0.2    0.0     1.9    2.2
+       regB.\             Memory.Machine          223           0    0.1    0.0     0.1    0.0
+       ipSegment          Memory.Machine          172           0    0.6    1.0     1.6    2.2
+        currIp            Memory.Memory           224           0    0.1    0.0     0.2    0.0
+         ip               VM.Type                 225    11739992    0.1    0.0     0.1    0.0
+        regB.\            Memory.Machine          222    11739992    0.8    1.2     0.8    1.2
+    incrIp                Memory.Memory           161           0    0.3    0.0     2.8    5.4
+     incrIp.\             Memory.Memory           162    68047608    2.4    5.4     2.4    5.4
+      ip                  VM.Type                 163    68047608    0.0    0.0     0.0    0.0
+    #                     VM.Instruction          144   145749070    4.9    0.0    46.6   50.3
+     regA                 Memory.Machine          235           0    0.3    0.0     3.9    4.0
+      regA.\              Memory.Machine          238           0    0.2    0.0     0.2    0.0
+      ipSegment           Memory.Machine          236           0    1.3    1.8     3.4    4.0
+       currIp             Memory.Memory           239           0    0.2    0.0     0.4    0.0
+        ip                VM.Type                 240    20910504    0.2    0.0     0.2    0.0
+       regA.\             Memory.Machine          237    20910504    1.8    2.1     1.8    2.1
+     regB                 Memory.Machine          200           0    0.4    0.0     5.2    5.0
+      regB.\              Memory.Machine          203           0    0.2    0.0     0.2    0.0
+      ipSegment           Memory.Machine          201           0    1.6    2.3     4.6    5.0
+       currIp             Memory.Memory           204           0    0.1    0.0     0.5    0.0
+        ip                VM.Type                 205    26611210    0.3    0.0     0.3    0.0
+       regB.\             Memory.Machine          202    26611210    2.5    2.7     2.5    2.7
+     setReg               Memory.Memory           197    41919737    1.4    4.9     6.2   13.7
+      modifyRegisters     Memory.Memory           198    41919737    0.2    0.0     4.8    8.8
+       modifyRegisters.\  Memory.Memory           199    41919737    4.6    8.8     4.6    8.8
+        registers         VM.Type                 206    41919736    0.0    0.0     0.0    0.0
+     orthographyReg       Memory.Machine          195           0    0.4    0.0     4.5    5.3
+      orthographyReg.\    Memory.Machine          208           0    0.2    0.0     0.2    0.0
+      ipSegment           Memory.Machine          196           0    1.5    2.4     3.9    5.3
+       currIp             Memory.Memory           209           0    0.2    0.0     0.4    0.0
+        ip                VM.Type                 210    27787488    0.2    0.0     0.2    0.0
+       orthographyReg.\   Memory.Machine          207    27787488    2.1    2.8     2.1    2.8
+     getReg               Memory.Memory           152    61909594    2.3    6.3     5.5    6.3
+      withMachine         Memory.Memory           153    61909594    2.5    0.0     3.2    0.0
+       registers          VM.Type                 159    61864143    0.7    0.0     0.7    0.0
+     getPlatter           Memory.Memory           150   103829332    2.7   10.6    11.4   10.6
+      withMachine         Memory.Memory           151   103829332    8.0    0.0     8.7    0.0
+       zeroArray          VM.Type                 158   103783879    0.7    0.0     0.7    0.0
+     regC                 Memory.Machine          147           0    0.4    0.0     4.9    5.4
+      regC.\              Memory.Machine          155           0    0.2    0.0     0.2    0.0
+      ipSegment           Memory.Machine          148           0    1.6    2.5     4.3    5.4
+       currIp             Memory.Memory           156           0    0.2    0.0     0.4    0.0
+        ip                VM.Type                 157    28474677    0.3    0.0     0.3    0.0
+       regC.\             Memory.Machine          154    28474677    2.3    2.9     2.3    2.9
+    spinCycle.instr       VM.VM                   134    68047609    0.0    0.0     0.0    0.0
+    currIp                Memory.Memory           130           0    0.3    0.0     0.7    0.0
+     ip                   VM.Type                 131    68047609    0.4    0.0     0.4    0.0
+    getPlatter            Memory.Memory           129    78810255    1.4    5.5     9.3    5.5
+     withMachine          Memory.Memory           133    78810255    6.6    0.0     7.9    0.0
+      getPlatter.indexArr Memory.Memory           253     3817580    1.0    0.0     1.0    0.0
+      arrays              VM.Type                 251     3817580    0.0    0.0     0.0    0.0
+      zeroArray           VM.Type                 135    74992674    0.3    0.0     0.3    0.0
+ CAF                      VM.VM                   121           0    0.0    0.0     0.0    0.0
+  liftBinaryOp            VM.VM                   166           0    0.0    0.0     0.0    0.0
+   #                      VM.Instruction          167           2    0.0    0.0     0.0    0.0
+  spinCycle               VM.VM                   126           1    0.0    0.0     0.0    0.0
+   liftBinaryOp           VM.VM                   164           4    0.0    0.0     0.0    0.0
+   #                      VM.Instruction          143          12    0.0    0.0     0.0    0.0
+ CAF                      Main                    119           0    0.0    0.0     0.0    0.0
+  loadMachine             Main                    136           0    0.0    0.0     0.0    0.0
+   platters               Main                    138           0    0.0    0.0     0.0    0.0
+    platters.go           Main                    139           1    0.0    0.0     0.0    0.0
+     platters.go          Main                    140           1    0.0    0.0     0.0    0.0
+  runProgram              Main                    124           1    0.0    0.0     0.0    0.0
+  main                    Main                    122           1    0.0    0.0     0.0    0.0
+ CAF                      Memory.Machine          118           0    0.0    0.0     0.0    0.0
+  orthographyReg          Memory.Machine          193           1    0.0    0.0     0.0    0.0
+   ipSegment              Memory.Machine          194           1    0.0    0.0     0.0    0.0
+  orthographyVal          Memory.Machine          186           1    0.0    0.0     0.0    0.0
+   orthographyVal.\       Memory.Machine          215           0    0.0    0.0     0.0    0.0
+   ipSegment              Memory.Machine          187           1    0.0    0.0     0.0    0.0
+  regA                    Memory.Machine          179           1    0.0    0.0     0.0    0.0
+   ipSegment              Memory.Machine          180           1    0.0    0.0     0.0    0.0
+  regB                    Memory.Machine          169           1    0.0    0.0     0.0    0.0
+   ipSegment              Memory.Machine          170           1    0.0    0.0     0.0    0.0
+  regC                    Memory.Machine          145           1    0.0    0.0     0.0    0.0
+   ipSegment              Memory.Machine          146           1    0.0    0.0     0.0    0.0
+ CAF                      Memory.Memory           117           0    0.0    0.0     0.0    0.0
+  incrIp                  Memory.Memory           160           1    0.0    0.0     0.0    0.0
+  zero                    Memory.Memory           149           1    0.0    0.0     0.0    0.0
+  currIp                  Memory.Memory           128           1    0.0    0.0     0.0    0.0
+ CAF                      GHC.Conc.Signal         106           0    0.0    0.0     0.0    0.0
+ CAF                      GHC.IO.Encoding          97           0    0.0    0.0     0.0    0.0
+ CAF                      GHC.IO.Encoding.Iconv    95           0    0.0    0.0     0.0    0.0
+ CAF                      GHC.IO.FD                90           0    0.0    0.0     0.0    0.0
+ CAF                      GHC.IO.Handle.FD         88           0    0.0    0.0     0.0    0.0
+ CAF                      GHC.TopHandler           81           0    0.0    0.0     0.0    0.0

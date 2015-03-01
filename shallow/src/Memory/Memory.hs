@@ -17,7 +17,7 @@ module Memory.Memory
 
 import Data.Word
 import Data.IntMap.Strict (IntMap)
-import Control.Monad.State
+import Control.Monad.State.Strict
 
 import qualified Data.IntMap.Strict as I
 import           Data.IntMap.Strict ((!))
@@ -78,7 +78,8 @@ zero :: ArrayNum
 zero = 0
 
 withMachine :: (Machine -> a) -> Instruction a
-withMachine f = fmap f get
+withMachine f = {-# SCC "withMachine" #-} fmap f get
+{-# INLINE withMachine #-}
 
 loadZero :: ArrayNum -> StateT Machine IO ()
 loadZero 0      = return ()

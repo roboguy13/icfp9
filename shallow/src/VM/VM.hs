@@ -1,4 +1,4 @@
-{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE ScopedTypeVariables, MultiWayIf #-}
 module VM.VM
   where
 
@@ -31,9 +31,8 @@ notAnd a b
 spinCycle :: Instruction ()
 spinCycle = do
   w <- (`getPlatter` 0) =<< currIp
---  liftIO $ print (w `shiftR` 28)
-  case w `shiftR` 28 of
-    0 -> do  -- Conditional move
+  let instr = w `shiftR` 28
+  if | instr == 0 -> do  -- Conditional move
       c <- regC # getReg
       if c /= 0
         then do
@@ -41,62 +40,62 @@ spinCycle = do
           regA # setReg b
         else return ()
 
-    1 -> do  -- Array index
+     | instr == 1 -> do  -- Array index
       b <- regB # getReg
       c <- regC # getReg
       x <- getPlatter c b
       regA # setReg x
 
-    2 -> do  -- Array amendment
+     | instr == 2 -> do  -- Array amendment
       a <- regA # getReg
       b <- regB # getReg
       c <- regC # getReg
       setPlatter c b a
 
-    3 ->     -- Addition
+     | instr == 3 ->     -- Addition
       liftBinaryOp (+)
 
-    4 ->     -- Multiplication
+     | instr == 4 ->     -- Multiplication
       liftBinaryOp (*)
 
-    5 ->     -- Division
+     | instr == 5 ->     -- Division
       liftBinaryOp quot
 
-    6 ->     -- Not-And
+     | instr == 6 ->     -- Not-And
       liftBinaryOp notAnd
 
-    7 ->     -- Halt
+     | instr == 7 ->     -- Halt
       liftIO exitSuccess
 
-    8 -> do   -- Allocation
+     | instr == 8 -> do   -- Allocation
       c <- regC # getReg
       arrNum <- allocArray c
       regB # setReg arrNum
 
-    9 -> do   -- Abandonment
+     | instr == 9 -> do   -- Abandonment
       c <- regC # getReg
       freeArray c
 
-    10 -> do  -- Output
+     | instr == 10 -> do  -- Output
       c <- regC # getReg
       liftIO . putChar . chr $ fromIntegral c
 
-    11 -> do  -- Input
+     | instr == 11 -> do  -- Input
       c <- liftIO
          . catch getChar
          $ \(_ :: IOError) -> return (chr 0xff)
       regC # setReg (fromIntegral (ord c))
 
-    12 -> do  -- Load program
+     | instr == 12 -> do  -- Load program
       b <- regB # getReg
       c <- regC # getReg
       loadZero b
       jmp (c-1)
 
-    13 -> do  -- Orthography
+     | instr == 13 -> do  -- Orthography
       val <- orthographyVal
       orthographyReg # setReg val
 
-    i -> error $ "Invalid instruction: " ++ show i
+     | otherwise -> error $ "Invalid instruction: " ++ show instr
 
   incrIp

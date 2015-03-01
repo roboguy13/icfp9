@@ -1,7 +1,7 @@
 import VM.VM
 import VM.Type
 
-import Control.Monad.State
+import Control.Monad.State.Strict
 
 import Data.ByteString (ByteString)
 import qualified Data.ByteString as B
