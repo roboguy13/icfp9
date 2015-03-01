@@ -15,7 +15,7 @@ import Control.Exception
 
 import Data.Char
 
-import Control.Monad.State
+import Control.Monad.State.Strict
 
 liftBinaryOp :: (Platter -> Platter -> Platter)
              -> Instruction ()
